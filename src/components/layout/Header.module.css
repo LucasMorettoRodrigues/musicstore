@@ -1,0 +1,41 @@
+.navbar {
+    background-color: blue;
+    display: flex;
+    padding: 10px 10%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar img {
+    height: 60px;
+}
+
+.search {
+    width: 500px;
+}
+
+.search input {
+    width: 80%;
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+}
+
+.search button {
+    width: 20%;
+    height: 40px;
+    padding: 10px 20px;
+    color: #FFF;
+    background-color: black;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+}
+
+.search button:active {
+    transform: scale(0.98);
+}
