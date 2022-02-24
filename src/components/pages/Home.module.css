@@ -1,0 +1,78 @@
+.header {
+    width: 100%;
+    height: calc(100vh - 139px);
+    background-color: rgba(0, 0, 0, 0.726);
+    background-image: url('../../assets/home-image.jpg');
+    background-blend-mode: color;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header img{
+    max-width: 75vh;
+    min-width: 0;
+    padding: 10px;
+    height: auto;
+}
+
+.section_container {
+    width: 85vw;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding: 50px 0;
+}
+
+.section_container h1 {
+    margin-bottom: 25px;
+}
+
+.products_container {
+    display: flex;
+    padding: 0 6vw;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.products_container::-webkit-scrollbar {
+    display: none;
+}
+
+.products_container div {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 40px;
+    height: 450px;
+    background-color: rgba(196, 196, 196, 0.466);
+}
+
+.products_container button {
+    width: 100px;
+    height: 450px;
+    border: none;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+}
+
+.products_container button i {
+    color: #222;
+    font-size: 3em;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.products_container button:hover i {
+    opacity: 1;
+}
+
+.next_btn {
+    position: absolute;
+    right: 0;
+}
+
+.prev_btn {
+    transform: rotate(180deg);
+    position: absolute;
+    left: 0;
+}

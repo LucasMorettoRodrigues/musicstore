@@ -1,9 +1,11 @@
-import Header from './components/layout/Header'
+import Navbar from './components/layout/Navbar'
+import Home from './components/pages/Home'
 
 function App() {
   return (
     <>
-      <Header />
+      <Navbar />
+      <Home />
     </>
   );
 }
