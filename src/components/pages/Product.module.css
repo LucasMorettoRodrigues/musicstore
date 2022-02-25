@@ -1,0 +1,54 @@
+.section_container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.product_container {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.product_container img {
+    padding: 10px;
+    border: 1px solid rgb(238, 238, 238);
+}
+
+.product_container div {
+    margin-left: 100px;
+}
+
+.product_container div h1 {
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+.product_container div h3 {
+    margin-bottom: 30px;
+}
+
+.product_container div ul li {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: rgb(102, 102, 102);
+    max-width: 400px;
+}
+
+.product_container div h2 {
+    margin: 40px 0;
+}
+
+.product_container div button {
+    padding: 20px 100px;
+    border: none;
+    background-color: #004483;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.product_container div button:hover {
+    background-color: #003464;
+}
