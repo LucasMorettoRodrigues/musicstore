@@ -68,7 +68,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className={styles.collection_section}>
+            <section className={styles.collection_container}>
                 <a href="#" className={styles.row1}>
                     <h2>Keyboards</h2>
                     <img src={keyboardCollection} alt="keyboard"></img>
