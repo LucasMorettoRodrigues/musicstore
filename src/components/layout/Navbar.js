@@ -4,7 +4,7 @@ import logo from '../../assets/logo.png'
 
 import { useState } from 'react'
 
-const Navbar = () => {
+const Navbar = ({ openCart }) => {
 
     const [showMenu, setShowMenu] = useState(false)
 
@@ -15,7 +15,7 @@ const Navbar = () => {
                     <img src={logo} alt="logo"></img>
                     <div className={styles.mobile_row1_icons}>
                         <a href='#'><i class="bi bi-person-circle"></i></a>
-                        <a href='#'><i class="bi bi-cart"></i></a>
+                        <a onClick={openCart} href='/'><i class="bi bi-cart"></i></a>
                     </div>
                 </div>
 
@@ -25,7 +25,7 @@ const Navbar = () => {
                         <button>Search</button>
                     </div>
                     <a href='#'><i class="bi bi-person-circle"></i></a>
-                    <a href='#'><i class="bi bi-cart"></i></a>
+                    <a onClick={openCart} href='#'><i class="bi bi-cart"></i></a>
                     <button onClick={() => setShowMenu(!showMenu)} className={styles.hamburger}><i class="bi bi-list"></i></button>
                 </div>
             </div>
