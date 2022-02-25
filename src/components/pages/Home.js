@@ -10,6 +10,8 @@ import guitar2 from '../../assets/products/guitar2.webp'
 import bass1 from '../../assets/products/bass1.jpg'
 import drums1 from '../../assets/products/drums1.webp'
 
+import ProductCard from '../products/ProductCard'
+
 const Home = () => {
 
     return (
@@ -26,46 +28,41 @@ const Home = () => {
                     <button onClick={(e) => e.currentTarget.parentNode.scrollLeft -= 340} className={styles.prev_btn}>
                         <i class="bi bi-chevron-right"></i>
                     </button>
-                    <div className={styles.product_card}>
-                        <img src={guitar1} alt=""></img>
-                        <h4>Awesome Guitar</h4>
-                        <p>$ 999.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={guitar2} alt=""></img>
-                        <h4>Good Guitar</h4>
-                        <p>$ 1000.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={bass1} alt=""></img>
-                        <h4>Awesome Bass</h4>
-                        <p>$ 1200.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={drums1} alt=""></img>
-                        <h4>Awesome Drums</h4>
-                        <p>$ 2000.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={guitar1} alt=""></img>
-                        <h4>Awesome Guitar</h4>
-                        <p>$ 999.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={guitar2} alt=""></img>
-                        <h4>Good Guitar</h4>
-                        <p>$ 1000.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={bass1} alt=""></img>
-                        <h4>Awesome Bass</h4>
-                        <p>$ 1200.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={drums1} alt=""></img>
-                        <h4>Awesome Drums</h4>
-                        <p>$ 2000.99</p>
-                    </div>
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
                 </div>
             </section>
             <section className={styles.collection_container}>
@@ -93,46 +90,41 @@ const Home = () => {
                     <button onClick={(e) => e.currentTarget.parentNode.scrollLeft -= 340} className={styles.prev_btn}>
                         <i class="bi bi-chevron-right"></i>
                     </button>
-                    <div className={styles.product_card}>
-                        <img src={guitar1} alt=""></img>
-                        <h4>Awesome Guitar</h4>
-                        <p>$ 999.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={guitar2} alt=""></img>
-                        <h4>Good Guitar</h4>
-                        <p>$ 1000.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={bass1} alt=""></img>
-                        <h4>Awesome Bass</h4>
-                        <p>$ 1200.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={drums1} alt=""></img>
-                        <h4>Awesome Drums</h4>
-                        <p>$ 2000.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={guitar1} alt=""></img>
-                        <h4>Awesome Guitar</h4>
-                        <p>$ 999.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={guitar2} alt=""></img>
-                        <h4>Good Guitar</h4>
-                        <p>$ 1000.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={bass1} alt=""></img>
-                        <h4>Awesome Bass</h4>
-                        <p>$ 1200.99</p>
-                    </div>
-                    <div className={styles.product_card}>
-                        <img src={drums1} alt=""></img>
-                        <h4>Awesome Drums</h4>
-                        <p>$ 2000.99</p>
-                    </div>
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
+                    <ProductCard
+                        img={guitar1}
+                        name="Awesome Guitar"
+                        price="999.99"
+                    />
                 </div>
             </section>
         </>
