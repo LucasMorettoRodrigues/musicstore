@@ -1,14 +1,13 @@
 import styles from './Home.module.css'
 
+import { Link } from 'react-router-dom'
+
 import logo from '../../assets/logo_blue_3.png'
 import guitarCollection from '../../assets/guitars-collection.jpg'
 import drumCollection from '../../assets/drums-collection.jpg'
 import keyboardCollection from '../../assets/keyboards-collection.jpg'
 
 import guitar1 from '../../assets/products/guitar1.webp'
-import guitar2 from '../../assets/products/guitar2.webp'
-import bass1 from '../../assets/products/bass1.jpg'
-import drums1 from '../../assets/products/drums1.webp'
 
 import ProductCard from '../products/ProductCard'
 
@@ -32,53 +31,67 @@ const Home = () => {
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                 </div>
             </section>
             <section className={styles.collection_container}>
-                <a href="#" className={styles.row1}>
+                <Link to="/keyboard" className={styles.row1}>
                     <h2>Keyboards</h2>
                     <img src={keyboardCollection} alt="keyboard"></img>
-                </a>
+                </Link>
                 <div className={styles.row2}>
-                    <a href="#" className={styles.row2_col1}>
+                    <Link to="/drum" className={styles.row2_col1}>
                         <h2>Drums</h2>
                         <img src={drumCollection} alt="Drums"></img>
-                    </a>
-                    <a href="#" className={styles.row2_col2}>
+                    </Link>
+                    <Link to="/guitar" className={styles.row2_col2}>
                         <h2>Guitars</h2>
                         <img src={guitarCollection} alt="Guitars"></img>
-                    </a>
+                    </Link>
                 </div>
             </section>
             <section className={styles.section_container}>
@@ -94,36 +107,50 @@ const Home = () => {
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                     <ProductCard
                         img={guitar1}
                         name="Awesome Guitar"
                         price="999.99"
+                        category="guitar"
+                        id="1"
                     />
                 </div>
             </section>

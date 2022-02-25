@@ -2,6 +2,7 @@ import styles from './Navbar.module.css'
 
 import logo from '../../assets/logo.png'
 
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 const Navbar = ({ openCart }) => {
@@ -12,7 +13,7 @@ const Navbar = ({ openCart }) => {
         <nav className={styles.navbar}>
             <div className={styles.header}>
                 <div className={styles.logo}>
-                    <img src={logo} alt="logo"></img>
+                    <Link to="/"><img src={logo} alt="logo"></img></Link>
                     <div className={styles.mobile_row1_icons}>
                         <a href='#'><i class="bi bi-person-circle"></i></a>
                         <a onClick={openCart} href='/'><i class="bi bi-cart"></i></a>
@@ -31,11 +32,11 @@ const Navbar = ({ openCart }) => {
             </div>
             <div className={showMenu ? null : styles.hidden}>
                 <ul>
-                    <li><a href="#">Guitar</a></li>
-                    <li><a href="#">Bass</a></li>
-                    <li><a href="#">Keyboard</a></li>
-                    <li><a href="#">Drums</a></li>
-                    <li><a href="#">Amplifier</a></li>
+                    <Link to='/guitar'><li>Guitar</li></Link>
+                    <Link to='/bass'><li>Bass</li></Link>
+                    <Link to='/keyboard'><li>Keyboard</li></Link>
+                    <Link to='/drums'><li>Drums</li></Link>
+                    <Link to='/amplifier'><li>Amplifier</li></Link>
                 </ul>
             </div>
         </nav>

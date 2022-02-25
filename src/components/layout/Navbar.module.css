@@ -111,17 +111,14 @@ display: flex;
 
 .navbar ul li{
     padding: 0 50px;
-}
-
-.navbar ul li a {
-    text-decoration: none;
+    border: none;
     font-weight: bold;
     color: white;
     opacity: 0.8;
 }
 
 .logo a:hover,
-.navbar ul li a:hover{
+.navbar ul li:hover{
     opacity: 1;
 }
 
