@@ -16,7 +16,7 @@ const Product = ({ addToCart, product }) => {
                         <li>Quisque diam urna, pellentesque non quam vel, venenatis venenatis elit. </li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
                     </ul>
-                    <h2>$ {product.price}</h2>
+                    <h2>$ {product.price.toFixed(2)}</h2>
                     <button
                         onClick={() => addToCart(product)}>Buy Now</button>
                 </div>

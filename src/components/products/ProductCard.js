@@ -10,7 +10,7 @@ const ProductCard = ({ product, openProductPage }) => {
                 }>
                 <img src={product.img} alt={product.name} />
                 <h4>{product.name}</h4>
-                <p>$ {product.price}</p>
+                <p>$ {product.price.toFixed(2)}</p>
             </div>
         </Link>
     )

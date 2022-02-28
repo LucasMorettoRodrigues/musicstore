@@ -18,7 +18,7 @@ const Cart = ({ closeCart, isOpen, cartProducts, addToCart, removeFromCart }) =>
                 </div>
                 <div className={styles.footer_cart}>
                     <h3>Total:
-                        <span>$ {cartProducts
+                        <span> $ {cartProducts
                             .reduce((total, item) => total + item.price * item.quantity, 0)
                             .toFixed(2)}
                         </span>

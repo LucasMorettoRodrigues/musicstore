@@ -32,27 +32,55 @@ const Products = ({ openProductPage }) => {
 
     return (
         <section className={styles.section_container}>
-            <h1>{category}</h1>
             <div className={styles.flex}>
                 <aside>
-                    <h2>Filter:</h2>
-                    <h3>Price:</h3>
+                    <h2>Filters</h2>
+                    <h3>Price</h3>
                     <ul>
-                        <li>preço 1</li>
-                        <li>preço 2</li>
-                        <li>preço 3</li>
+                        <li>
+                            <input id="1" className={styles.checkbox} type="checkbox" />
+                            <label htmlFor="1">Preço 1</label>
+                        </li>
+                        <li>
+                            <input id="2" className={styles.checkbox} type="checkbox" />
+                            <label htmlFor="2">Preço 2</label>
+                        </li>
+                        <li>
+                            <input id="3" className={styles.checkbox} type="checkbox" />
+                            <label htmlFor="3">Preço 3</label>
+                        </li>
                     </ul>
+                    <h3>Brand</h3>
+                    <ul>
+                        <li>
+                            <input id="4" className={styles.checkbox} type="checkbox" />
+                            <label htmlFor="4">Brand 1</label>
+                        </li>
+                        <li>
+                            <input id="5" className={styles.checkbox} type="checkbox" />
+                            <label htmlFor="5">Brand 2</label>
+                        </li>
+                        <li>
+                            <input id="6" className={styles.checkbox} type="checkbox" />
+                            <label htmlFor="6">Brand 3</label>
+                        </li>
+                    </ul>
+                    <button> Filter </button>
                 </aside>
                 <div className={styles.products_container}>
-                    {products.map((product) => (
-                        <ProductCard
-                            key={product._id}
-                            product={product}
-                            openProductPage={openProductPage}
-                        />
-                    ))
-                    }
+                    <h1>{category}</h1>
+                    <div className={styles.products}>
+                        {products.map((product) => (
+                            <ProductCard
+                                key={product._id}
+                                product={product}
+                                openProductPage={openProductPage}
+                            />
+                        ))
+                        }
+                    </div>
                 </div>
+
             </div>
         </section>
     )
