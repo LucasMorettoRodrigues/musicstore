@@ -7,6 +7,8 @@ import Cart from './components/layout/Cart'
 import Home from './components/pages/Home'
 import Product from './components/pages/Product'
 import Products from './components/pages/Products'
+import Login from './components/pages/Login'
+import Register from './components/pages/Register'
 
 function App() {
 
@@ -52,7 +54,9 @@ function App() {
       <Navbar openCart={() => setShowCart(true)} />
       <Routes>
         <Route exact path="/" element={<Home openProductPage={(product) => setCurrentProduct(product)} />} />
-        <Route path="/category/:category" element={<Products />} openProductPage={(product) => setCurrentProduct(product)} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Register />} />
+        <Route path="/category/:category" element={<Products openProductPage={(product) => setCurrentProduct(product)} />} />
         <Route
           path="/:id"
           element={

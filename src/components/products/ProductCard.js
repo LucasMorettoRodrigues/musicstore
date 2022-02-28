@@ -6,8 +6,7 @@ const ProductCard = ({ product, openProductPage }) => {
     return (
         <Link to={`/${product._id}`}>
             <div className={styles.product_card}
-                onClick={() => openProductPage(product)
-                }>
+                onClick={() => openProductPage(product)}>
                 <img src={product.img} alt={product.name} />
                 <h4>{product.name}</h4>
                 <p>$ {product.price.toFixed(2)}</p>

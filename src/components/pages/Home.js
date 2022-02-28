@@ -38,7 +38,6 @@ const Home = ({ openProductPage }) => {
 
     return (
         <>
-            {console.log(products)}
             <header className={styles.header}>
                 <img src={logo} alt="MusicStore Logo"></img>
             </header>

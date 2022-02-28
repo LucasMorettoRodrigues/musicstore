@@ -11,7 +11,7 @@ const Cart = ({ closeCart, isOpen, cartProducts, addToCart, removeFromCart }) =>
                     {cartProducts.map((product) => (
                         <CartCard
                             product={product}
-                            key={product.id}
+                            key={product._id}
                             addToCart={addToCart}
                             removeFromCart={removeFromCart} />
                     ))}

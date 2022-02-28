@@ -70,10 +70,10 @@ const Products = ({ openProductPage }) => {
                 <div className={styles.products_container}>
                     <h1>{category}</h1>
                     <div className={styles.products}>
-                        {products.map((product) => (
+                        {products.map((item) => (
                             <ProductCard
-                                key={product._id}
-                                product={product}
+                                key={item._id}
+                                product={item}
                                 openProductPage={openProductPage}
                             />
                         ))

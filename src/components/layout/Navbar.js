@@ -15,7 +15,7 @@ const Navbar = ({ openCart }) => {
                 <div className={styles.logo}>
                     <Link to="/"><img src={logo} alt="logo"></img></Link>
                     <div className={styles.mobile_row1_icons}>
-                        <a href='#'><i class="bi bi-person-circle"></i></a>
+                        <Link to="/login"><i class="bi bi-person-circle"></i></Link>
                         <a onClick={openCart} href='/'><i class="bi bi-cart"></i></a>
                     </div>
                 </div>
@@ -25,7 +25,7 @@ const Navbar = ({ openCart }) => {
                         <input type="text" placeholder="Search Products..."></input>
                         <button>Search</button>
                     </div>
-                    <a href='#'><i class="bi bi-person-circle"></i></a>
+                    <Link to="/login"><i class="bi bi-person-circle"></i></Link>
                     <a onClick={openCart} href='#'><i class="bi bi-cart"></i></a>
                     <button onClick={() => setShowMenu(!showMenu)} className={styles.hamburger}><i class="bi bi-list"></i></button>
                 </div>
