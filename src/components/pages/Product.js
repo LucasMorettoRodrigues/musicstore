@@ -1,21 +1,13 @@
 import styles from './Product.module.css'
 
-import guitar1 from '../../assets/products/guitar1.webp'
-
-const Product = ({ addToCart }) => {
-
-    const productteste = {
-        id: 2,
-        name: "teste",
-        price: 99.99
-    }
+const Product = ({ addToCart, product }) => {
 
     return (
         <section className={styles.section_container}>
             <div className={styles.product_container}>
-                <img src={guitar1} alt="" />
+                <img src={product.img} alt="" />
                 <div>
-                    <h1>Awesome Guitar</h1>
+                    <h1>{product.name}</h1>
                     <h3>About this item</h3>
                     <ul>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
@@ -24,8 +16,9 @@ const Product = ({ addToCart }) => {
                         <li>Quisque diam urna, pellentesque non quam vel, venenatis venenatis elit. </li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
                     </ul>
-                    <h2>$ 1999.99</h2>
-                    <button onClick={() => addToCart(productteste)}>Buy Now</button>
+                    <h2>$ {product.price}</h2>
+                    <button
+                        onClick={() => addToCart(product)}>Buy Now</button>
                 </div>
             </div>
         </section>

@@ -17,7 +17,12 @@ const Cart = ({ closeCart, isOpen, cartProducts, addToCart, removeFromCart }) =>
                     ))}
                 </div>
                 <div className={styles.footer_cart}>
-                    <h3>Total: <span>$ 1231.00</span></h3>
+                    <h3>Total:
+                        <span>$ {cartProducts
+                            .reduce((total, item) => total + item.price * item.quantity, 0)
+                            .toFixed(2)}
+                        </span>
+                    </h3>
                     <button>Checkout</button>
                     <button onClick={closeCart}>Continue Shopping</button>
                 </div>

@@ -6,6 +6,9 @@
 
 .section_container h1 {
     margin-bottom: 50px;
+    text-transform: capitalize;
+    font-size: 2em;
+    border-bottom: 1px solid #004483;
 }
 
 .flex {

@@ -32,11 +32,11 @@ const Navbar = ({ openCart }) => {
             </div>
             <div className={showMenu ? null : styles.hidden}>
                 <ul>
-                    <Link to='/guitar'><li>Guitar</li></Link>
-                    <Link to='/bass'><li>Bass</li></Link>
-                    <Link to='/keyboard'><li>Keyboard</li></Link>
-                    <Link to='/drums'><li>Drums</li></Link>
-                    <Link to='/amplifier'><li>Amplifier</li></Link>
+                    <Link to='/category/guitar'><li>Guitar</li></Link>
+                    <Link to='/category/bass'><li>Bass</li></Link>
+                    <Link to='/category/keyboard'><li>Keyboard</li></Link>
+                    <Link to='/category/drums'><li>Drums</li></Link>
+                    <Link to='/category/amplifier'><li>Amplifier</li></Link>
                 </ul>
             </div>
         </nav>

@@ -2,13 +2,15 @@ import styles from './ProductCard.module.css'
 
 import { Link } from 'react-router-dom'
 
-const ProductCard = ({ img, name, price, id, category }) => {
+const ProductCard = ({ product, openProductPage }) => {
     return (
-        <Link to={`/${category}/${id}`}>
-            <div className={styles.product_card}>
-                <img src={img} alt={name} />
-                <h4>{name}</h4>
-                <p>$ {price}</p>
+        <Link to={`/${product._id}`}>
+            <div className={styles.product_card}
+                onClick={() => openProductPage(product)
+                }>
+                <img src={product.img} alt={product.name} />
+                <h4>{product.name}</h4>
+                <p>$ {product.price}</p>
             </div>
         </Link>
     )
