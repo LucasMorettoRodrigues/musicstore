@@ -1,9 +1,10 @@
 import styles from './Products.module.css'
-import axios from 'axios'
+
+import api from '../../services/api.service'
+
 import ProductCard from '../products/ProductCard'
 
 import { useParams } from 'react-router-dom'
-
 import { useEffect, useState } from 'react'
 
 const Products = ({ openProductPage }) => {
@@ -16,7 +17,7 @@ const Products = ({ openProductPage }) => {
     useEffect(() => {
         async function getProducts() {
             try {
-                const { data } = await axios
+                const { data } = await api
                     .get(`http://localhost:5000/api/v1/products?category=${category}`)
                 setProducts(data)
             } catch (error) {

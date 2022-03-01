@@ -2,7 +2,8 @@ import styles from './Home.module.css'
 
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+
+import api from '../../services/api.service'
 
 import logo from '../../assets/logo_blue_3.png'
 import guitarCollection from '../../assets/guitars-collection.jpg'
@@ -19,7 +20,7 @@ const Home = ({ openProductPage }) => {
     useEffect(() => {
         async function getProducts() {
             try {
-                const { data } = await axios.get('http://localhost:5000/api/v1/products')
+                const { data } = await api.get('http://localhost:5000/api/v1/products')
                 setProducts(data)
             } catch (error) {
                 console.log(error);

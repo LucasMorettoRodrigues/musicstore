@@ -1,7 +1,34 @@
 import styles from './Cart.module.css'
 import CartCard from '../products/CartCard'
 
+import api from '../../services/api.service'
+
 const Cart = ({ closeCart, isOpen, cartProducts, addToCart, removeFromCart }) => {
+
+    const checkout = async () => {
+
+        let products = []
+
+        for (const product of cartProducts) {
+            const newProduct = {
+                productId: product._id,
+                quantity: product.quantity
+            }
+
+            products = [...products, newProduct]
+        }
+
+        try {
+            const { data } = await api.post("http://localhost:5000/api/v1/orders", {
+                products: products
+            })
+
+            console.log(data);
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <div className={`${styles.cart_back} ${isOpen ? styles.show_back : null}`}>
@@ -23,7 +50,7 @@ const Cart = ({ closeCart, isOpen, cartProducts, addToCart, removeFromCart }) =>
                             .toFixed(2)}
                         </span>
                     </h3>
-                    <button>Checkout</button>
+                    <button onClick={checkout}>Checkout</button>
                     <button onClick={closeCart}>Continue Shopping</button>
                 </div>
 

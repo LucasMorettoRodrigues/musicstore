@@ -17,7 +17,7 @@ function App() {
   const [currentProduct, setCurrentProduct] = useState({})
 
   const addToCart = (product) => {
-    const itemIndex = cartProducts.findIndex((item) => item.id === product.id)
+    const itemIndex = cartProducts.findIndex((item) => item._id === product._id)
 
     if (itemIndex > -1) {
       const newCartProducts = cartProducts.slice()
@@ -30,7 +30,7 @@ function App() {
   }
 
   const removeFromCart = (product) => {
-    const itemIndex = cartProducts.findIndex((item) => item.id === product.id)
+    const itemIndex = cartProducts.findIndex((item) => item._id === product._id)
 
     const newCart = cartProducts.slice()
 
