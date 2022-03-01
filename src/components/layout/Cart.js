@@ -1,33 +1,42 @@
 import styles from './Cart.module.css'
 import CartCard from '../products/CartCard'
 
-import api from '../../services/api.service'
+import { useNavigate } from 'react-router-dom'
+
+// import api from '../../services/api.service'
 
 const Cart = ({ closeCart, isOpen, cartProducts, addToCart, removeFromCart }) => {
 
-    const checkout = async () => {
+    const navigate = useNavigate()
 
-        let products = []
+    // const checkout = async () => {
 
-        for (const product of cartProducts) {
-            const newProduct = {
-                productId: product._id,
-                quantity: product.quantity
-            }
+    //     let products = []
 
-            products = [...products, newProduct]
-        }
+    //     for (const product of cartProducts) {
+    //         const newProduct = {
+    //             productId: product._id,
+    //             quantity: product.quantity
+    //         }
 
-        try {
-            const { data } = await api.post("http://localhost:5000/api/v1/orders", {
-                products: products
-            })
+    //         products = [...products, newProduct]
+    //     }
 
-            console.log(data);
+    //     try {
+    //         const { data } = await api.post("http://localhost:5000/api/v1/orders", {
+    //             products: products
+    //         })
 
-        } catch (error) {
-            console.log(error)
-        }
+    //         console.log(data);
+
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+
+    const checkout = () => {
+        closeCart()
+        navigate('/checkout/shipping')
     }
 
     return (
@@ -53,7 +62,6 @@ const Cart = ({ closeCart, isOpen, cartProducts, addToCart, removeFromCart }) =>
                     <button onClick={checkout}>Checkout</button>
                     <button onClick={closeCart}>Continue Shopping</button>
                 </div>
-
             </div>
         </div>
 

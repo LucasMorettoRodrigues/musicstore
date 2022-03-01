@@ -9,12 +9,17 @@ import Product from './components/pages/Product'
 import Products from './components/pages/Products'
 import Login from './components/pages/Login'
 import Register from './components/pages/Register'
+import Shipping from './components/pages/Shipping'
+import Order from './components/pages/Order'
+import PurchaseCompleted from './components/pages/PurchaseCompleted'
+import Orders from './components/pages/Orders'
 
 function App() {
 
   const [showCart, setShowCart] = useState(false)
   const [cartProducts, setCartProducts] = useState([])
   const [currentProduct, setCurrentProduct] = useState({})
+  const [shipping, setShipping] = useState({})
 
   const addToCart = (product) => {
     if (!showCart) setShowCart(true)
@@ -65,7 +70,13 @@ function App() {
             <Product
               addToCart={(product) => addToCart(product)}
               product={currentProduct}
-            />} />
+            />
+          }
+        />
+        <Route path="/checkout/shipping" element={<Shipping setShipping={(address) => setShipping(address)} />} />
+        <Route path="/checkout/order" element={<Order cartProducts={cartProducts} shipping={shipping} />} />
+        <Route path="/checkout/completed" element={<PurchaseCompleted />} />
+        <Route path="/orders" element={<Orders />} />
       </Routes>
       <Footer />
     </BrowserRouter>
