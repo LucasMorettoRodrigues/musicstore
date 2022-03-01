@@ -17,6 +17,8 @@ function App() {
   const [currentProduct, setCurrentProduct] = useState({})
 
   const addToCart = (product) => {
+    if (!showCart) setShowCart(true)
+
     const itemIndex = cartProducts.findIndex((item) => item._id === product._id)
 
     if (itemIndex > -1) {
@@ -61,10 +63,7 @@ function App() {
           path="/:id"
           element={
             <Product
-              addToCart={(product) => {
-                addToCart(product)
-                setShowCart(true)
-              }}
+              addToCart={(product) => addToCart(product)}
               product={currentProduct}
             />} />
       </Routes>
