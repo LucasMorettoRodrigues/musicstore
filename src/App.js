@@ -18,7 +18,6 @@ function App() {
 
   const [showCart, setShowCart] = useState(false)
   const [cartProducts, setCartProducts] = useState([])
-  const [currentProduct, setCurrentProduct] = useState({})
   const [shipping, setShipping] = useState({})
 
   const addToCart = (product) => {
@@ -60,19 +59,11 @@ function App() {
       />
       <Navbar openCart={() => setShowCart(true)} />
       <Routes>
-        <Route exact path="/" element={<Home openProductPage={(product) => setCurrentProduct(product)} />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
-        <Route path="/category/:category" element={<Products openProductPage={(product) => setCurrentProduct(product)} />} />
-        <Route
-          path="/:id"
-          element={
-            <Product
-              addToCart={(product) => addToCart(product)}
-              product={currentProduct}
-            />
-          }
-        />
+        <Route path="/category/:category" element={<Products />} />
+        <Route path="/:id" element={<Product addToCart={(product) => addToCart(product)} />} />
         <Route path="/checkout/shipping" element={<Shipping setShipping={(address) => setShipping(address)} />} />
         <Route path="/checkout/order" element={<Order cartProducts={cartProducts} shipping={shipping} />} />
         <Route path="/checkout/completed" element={<PurchaseCompleted />} />

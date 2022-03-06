@@ -12,7 +12,7 @@ import keyboardCollection from '../../assets/keyboards-collection.jpg'
 
 import ProductCard from '../products/ProductCard'
 
-const Home = ({ openProductPage }) => {
+const Home = () => {
 
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
@@ -55,7 +55,6 @@ const Home = ({ openProductPage }) => {
                         <ProductCard
                             key={item._id}
                             product={item}
-                            openProductPage={openProductPage}
                         />
                     ))
                     }
@@ -90,7 +89,6 @@ const Home = ({ openProductPage }) => {
                         <ProductCard
                             key={item._id}
                             product={item}
-                            openProductPage={openProductPage}
                         />
                     ))
                     }

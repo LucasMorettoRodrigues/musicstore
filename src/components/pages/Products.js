@@ -7,7 +7,7 @@ import ProductCard from '../products/ProductCard'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
-const Products = ({ openProductPage }) => {
+const Products = () => {
 
     const { category } = useParams()
 
@@ -75,7 +75,6 @@ const Products = ({ openProductPage }) => {
                             <ProductCard
                                 key={item._id}
                                 product={item}
-                                openProductPage={openProductPage}
                             />
                         ))
                         }

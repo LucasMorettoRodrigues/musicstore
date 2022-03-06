@@ -1,6 +1,26 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import api from '../../services/api.service'
 import styles from './Product.module.css'
 
-const Product = ({ addToCart, product }) => {
+const Product = ({ addToCart }) => {
+
+    const { id } = useParams()
+    const [product, setProduct] = useState()
+
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const data = await api.get(`http://localhost:5000/api/v1/products/${id}`)
+                setProduct(data.data)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getProduct()
+    }, [id])
+
+    if (!product) return <p>Loading</p>
 
     return (
         <section className={styles.section_container}>
