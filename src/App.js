@@ -20,39 +20,30 @@ function App() {
   const [showCart, setShowCart] = useState(false)
   const [cartProducts, setCartProducts] = useState([])
   const [shipping, setShipping] = useState({})
-  const [loading, setLoading] = useState(true)
+
+  const getCartProducts = async () => {
+    const cartStr = localStorage.getItem("cart")
+    if (!cartStr) return
+    let productsArray = []
+    const cart = JSON.parse(cartStr)
+    for (const item of cart) {
+      try {
+        const res = await api.get(`http://localhost:5000/api/v1/products/${item.productId}`)
+        res.data.quantity = item.quantity
+        productsArray = [...productsArray, res.data]
+      } catch (error) { console.log(error) }
+    }
+    setCartProducts(productsArray)
+  }
 
   useEffect(() => {
-    const cartStr = localStorage.getItem("cart")
-    if (!cartStr) return setLoading(false)
-
-    const getCartProducts = async () => {
-      let productsArray = []
-      const cart = JSON.parse(cartStr)
-      for (const item of cart) {
-        try {
-          const res = await api.get(`http://localhost:5000/api/v1/products/${item.productId}`)
-          res.data.quantity = item.quantity
-          productsArray = [...productsArray, res.data]
-          console.log(productsArray);
-        } catch (error) {
-          console.log(error);
-        }
-      }
-      setCartProducts(productsArray)
-    }
-
     getCartProducts()
-    setLoading(false)
-  }, [loading])
+  }, [])
 
   const handleCart = (product, action) => {
     const cartStr = localStorage.getItem("cart")
 
-    if (!cartStr) {
-      localStorage.setItem("cart", JSON.stringify([{ productId: product._id, quantity: 1 }]))
-      return setLoading(true)
-    }
+    if (!cartStr) return localStorage.setItem("cart", JSON.stringify([{ productId: product._id, quantity: 1 }]))
 
     const cart = JSON.parse(cartStr)
     const itemIndex = cart.findIndex((item) => item.productId === product._id)
@@ -63,9 +54,10 @@ function App() {
     if (itemIndex >= 0 && action === "add") newCart[itemIndex].quantity += 1
 
     localStorage.setItem("cart", JSON.stringify(newCart))
+    getCartProducts()
     !showCart && setShowCart(true)
-    return setLoading(true)
   }
+
 
   return (
     <BrowserRouter>
