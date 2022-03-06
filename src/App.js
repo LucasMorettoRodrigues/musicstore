@@ -6,7 +6,7 @@ import Footer from './components/layout/Footer'
 import Cart from './components/layout/Cart'
 import Home from './components/pages/Home'
 import Product from './components/pages/Product'
-import Products from './components/pages/Products'
+import ProductList from './components/pages/ProductList'
 import Login from './components/pages/Login'
 import Register from './components/pages/Register'
 import Shipping from './components/pages/Shipping'
@@ -62,7 +62,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
-        <Route path="/category/:category" element={<Products />} />
+        <Route path="/category/:category" element={<ProductList />} />
         <Route path="/:id" element={<Product addToCart={(product) => addToCart(product)} />} />
         <Route path="/checkout/shipping" element={<Shipping setShipping={(address) => setShipping(address)} />} />
         <Route path="/checkout/order" element={<Order cartProducts={cartProducts} shipping={shipping} />} />

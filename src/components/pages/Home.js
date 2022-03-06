@@ -1,42 +1,15 @@
 import styles from './Home.module.css'
 
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-
-import api from '../../services/api.service'
 
 import logo from '../../assets/logo_blue_3.png'
 import guitarCollection from '../../assets/guitars-collection.jpg'
 import drumCollection from '../../assets/drums-collection.jpg'
 import keyboardCollection from '../../assets/keyboards-collection.jpg'
 
-import ProductCard from '../products/ProductCard'
+import Products from '../layout/Products'
 
 const Home = () => {
-
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        async function getProducts() {
-            try {
-                const { data } = await api.get('http://localhost:5000/api/v1/products')
-                setProducts(data)
-            } catch (error) {
-                console.log(error);
-            } finally {
-                setLoading(false)
-            }
-        }
-        getProducts()
-    }, [])
-
-    if (loading) {
-        return (
-            <p>Loading...</p>
-        )
-    }
-
     return (
         <>
             <header className={styles.header}>
@@ -51,13 +24,7 @@ const Home = () => {
                     <button onClick={(e) => e.currentTarget.parentNode.scrollLeft -= 340} className={styles.prev_btn}>
                         <i class="bi bi-chevron-right"></i>
                     </button>
-                    {products.map((item) => (
-                        <ProductCard
-                            key={item._id}
-                            product={item}
-                        />
-                    ))
-                    }
+                    <Products />
                 </div>
             </section>
             <section className={styles.collection_container}>
@@ -85,13 +52,7 @@ const Home = () => {
                     <button onClick={(e) => e.currentTarget.parentNode.scrollLeft -= 340} className={styles.prev_btn}>
                         <i class="bi bi-chevron-right"></i>
                     </button>
-                    {products.map((item) => (
-                        <ProductCard
-                            key={item._id}
-                            product={item}
-                        />
-                    ))
-                    }
+                    <Products categoryFilter="bass" />
                 </div>
             </section>
         </>

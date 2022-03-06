@@ -1,35 +1,13 @@
-import styles from './Products.module.css'
+import styles from './ProductList.module.css'
 
-import api from '../../services/api.service'
-
-import ProductCard from '../products/ProductCard'
+import Products from '../layout/Products'
 
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 
-const Products = () => {
+
+const ProductList = () => {
 
     const { category } = useParams()
-
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        async function getProducts() {
-            try {
-                const { data } = await api
-                    .get(`http://localhost:5000/api/v1/products?category=${category}`)
-                setProducts(data)
-            } catch (error) {
-                console.log(error);
-            } finally {
-                setLoading(false)
-            }
-        }
-        getProducts()
-    }, [category])
-
-    if (loading) return (<p>Loading</p>)
 
     return (
         <section className={styles.section_container}>
@@ -71,13 +49,7 @@ const Products = () => {
                 <div className={styles.products_container}>
                     <h1>{category}</h1>
                     <div className={styles.products}>
-                        {products.map((item) => (
-                            <ProductCard
-                                key={item._id}
-                                product={item}
-                            />
-                        ))
-                        }
+                        <Products />
                     </div>
                 </div>
 
@@ -86,4 +58,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default ProductList
