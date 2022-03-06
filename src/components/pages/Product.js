@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import api from '../../services/api.service'
 import styles from './Product.module.css'
 
-const Product = ({ addToCart }) => {
+const Product = ({ handleCart }) => {
 
     const { id } = useParams()
     const [product, setProduct] = useState()
@@ -37,8 +37,10 @@ const Product = ({ addToCart }) => {
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
                     </ul>
                     <h2>$ {product.price.toFixed(2)}</h2>
-                    <button
-                        onClick={() => addToCart(product)}>Buy Now</button>
+                    <button onClick={() => handleCart(product, "add")}>
+                        Buy Now 2
+                    </button>
+
                 </div>
             </div>
         </section>

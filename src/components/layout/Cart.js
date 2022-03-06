@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 // import api from '../../services/api.service'
 
-const Cart = ({ closeCart, isOpen, cartProducts, addToCart, removeFromCart }) => {
+const Cart = ({ closeCart, isOpen, handleCart, cartProducts }) => {
 
     const navigate = useNavigate()
 
@@ -48,8 +48,8 @@ const Cart = ({ closeCart, isOpen, cartProducts, addToCart, removeFromCart }) =>
                         <CartCard
                             product={product}
                             key={product._id}
-                            addToCart={addToCart}
-                            removeFromCart={removeFromCart} />
+                            handleCart={(product, action) => handleCart(product, action)}
+                        />
                     ))}
                 </div>
                 <div className={styles.footer_cart}>

@@ -1,6 +1,7 @@
 import styles from './CartCard.module.css'
 
-const CartCard = ({ product, addToCart, removeFromCart }) => {
+const CartCard = ({ product, handleCart }) => {
+
     return (
         <div className={styles.card}>
             <h1>{product.name}</h1>
@@ -9,16 +10,15 @@ const CartCard = ({ product, addToCart, removeFromCart }) => {
                 <div className={styles.quantity}>
                     <h5>Quantity</h5>
                     <div>
-                        <button onClick={() => removeFromCart(product)}>-</button>
+                        <button onClick={() => handleCart(product, "remove")}>-</button>
                         <h4>{product.quantity}</h4>
-                        <button onClick={() => addToCart(product)}>+</button>
+                        <button onClick={() => handleCart(product, "add")}>+</button>
                     </div>
                 </div>
                 <div className={styles.subtotal}>
                     <h5>Subtotal</h5>
                     <h4>$ {product.price}</h4>
                 </div>
-
             </div>
         </div>
     )
