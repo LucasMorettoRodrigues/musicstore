@@ -22,6 +22,7 @@ const Order = ({ cartProducts }) => {
                     tokenId: stripeToken.id,
                     amount: 500,
                 });
+                console.log(res.data);
                 navigate("/checkout/success", {
                     state: {
                         stripeData: res.data,

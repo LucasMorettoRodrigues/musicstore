@@ -60,7 +60,7 @@ const OrderAddressContainer = styled.div`
     padding-bottom: 0;
     margin-bottom: 10px;
 `
-const OrderAddress = styled.p`
+const OrderAddressTitle = styled.p`
     padding: 5px;
 `
 const OrderLocationContainer = styled.div`
@@ -69,13 +69,16 @@ const OrderLocationContainer = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
 `
+const OrderAddress = styled.p`
+    padding: 5px;
+    flex: 1;
+`
 const OrderCountry = styled.p`
     padding: 5px;
     flex: 1;
 `
 const OrderCity = styled.p`
     padding: 5px;
-    flex: 2;
 `
 const OrderAmount = styled.p`
     border: 1px solid white;
@@ -102,7 +105,7 @@ const Orders = () => {
         <Container>
             <Title>Your Orders:</Title>
             {orders.length > 0 && orders.map((order) => (
-                <OrderContainer>
+                <OrderContainer key={order._id}>
                     <OrderHeaderContainer>
                         <OrderId>Order ID: {order._id}</OrderId>
                         <OrderStatus>Order Status: {order.status}</OrderStatus>
@@ -110,7 +113,7 @@ const Orders = () => {
                     <ProductContainer>
                         <ProductTitle>Products:</ProductTitle>
                         {order.products.map(product => (
-                            <ProductItemContainer>
+                            <ProductItemContainer key={product.name}>
                                 <ProductName>{product.name}</ProductName>
                                 <ProductPrice>Price: $ {product.price}</ProductPrice>
                                 <ProductQuantity>Quantity: {product.quantity}</ProductQuantity>
@@ -118,8 +121,9 @@ const Orders = () => {
                         ))}
                     </ProductContainer>
                     <OrderAddressContainer>
-                        <OrderAddress>Address: {order.address.address}</OrderAddress>
+                        <OrderAddressTitle>Shipping Information:</OrderAddressTitle>
                         <OrderLocationContainer>
+                            <OrderAddress>Address: {order.address.line1}</OrderAddress>
                             <OrderCountry>Country: {order.address.country}</OrderCountry>
                             <OrderCity>City: {order.address.city}</OrderCity>
                         </OrderLocationContainer>
