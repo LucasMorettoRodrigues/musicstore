@@ -13,6 +13,7 @@ import Order from './components/pages/Order'
 import PurchaseCompleted from './components/pages/PurchaseCompleted'
 import Orders from './components/pages/Orders'
 import api from './services/api.service'
+import Success from './components/pages/Success'
 
 function App() {
 
@@ -77,8 +78,10 @@ function App() {
         <Route path="/category/:category" element={<ProductList />} />
         <Route path="/:id" element={<Product handleCart={(product, action) => handleCart(product, action)} />} />
         <Route path="/checkout/order" element={<Order cartProducts={cartProducts} />} />
+        <Route path="/checkout/success" element={<Success />} />
         <Route path="/checkout/completed" element={<PurchaseCompleted />} />
         <Route path="/orders" element={<Orders />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
