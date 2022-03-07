@@ -4,6 +4,7 @@ import logo from '../../assets/logo.png'
 
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import getUser from '../../services/auth.service'
 
 const Navbar = ({ openCart }) => {
 
@@ -15,17 +16,16 @@ const Navbar = ({ openCart }) => {
                 <div className={styles.logo}>
                     <Link to="/"><img src={logo} alt="logo"></img></Link>
                     <div className={styles.mobile_row1_icons}>
-                        <Link to="/login"><i class="bi bi-person-circle"></i></Link>
-                        <a onClick={openCart} href='/'><i class="bi bi-cart"></i></a>
+                        <Link to={getUser() ? "/orders" : "/login"}><i class="bi bi-person-circle"></i></Link>
+                        <div className={styles.icon} onClick={openCart}><i class="bi bi-cart"></i></div>
                     </div>
                 </div>
-
                 <div className={styles.nav_items}>
                     <div className={styles.search}>
                         <input type="text" placeholder="Search Products..."></input>
                         <button>Search</button>
                     </div>
-                    <Link to="/login"><i class="bi bi-person-circle"></i></Link>
+                    <Link to={getUser() ? "/orders" : "/login"}><i class="bi bi-person-circle"></i></Link>
                     <div className={styles.icon} onClick={openCart}><i class="bi bi-cart"></i></div>
                     <button onClick={() => setShowMenu(!showMenu)} className={styles.hamburger}><i class="bi bi-list"></i></button>
                 </div>
