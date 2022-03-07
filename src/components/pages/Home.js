@@ -8,8 +8,25 @@ import drumCollection from '../../assets/drums-collection.jpg'
 import keyboardCollection from '../../assets/keyboards-collection.jpg'
 
 import Products from '../layout/Products'
+import { useRef, useState } from 'react'
 
 const Home = () => {
+
+    const listRef = useRef()
+    const [position, setPosition] = useState(0)
+
+    const handleScroll = (direction) => {
+        if (direction === "left" && position < 0) {
+            listRef.current.style.transform = `translateX(${position + 340}px)`
+            setPosition(position + 340)
+        }
+        if (direction === "right" && position > -340) {
+            listRef.current.style.transform = `translateX(${position - 340}px)`
+            setPosition(position - 340)
+        }
+        console.log(position);
+    }
+
     return (
         <>
             <header className={styles.header}>
@@ -17,14 +34,16 @@ const Home = () => {
             </header>
             <section className={styles.section_container}>
                 <h1>Best Sellers</h1>
-                <div className={styles.products_container} id='teste'>
-                    <button onClick={(e) => e.currentTarget.parentNode.scrollLeft += 340} className={styles.next_btn}>
+                <div className={styles.products_container} >
+                    <button onClick={() => handleScroll("left")} className={styles.prev_btn}>
                         <i class="bi bi-chevron-right"></i>
                     </button>
-                    <button onClick={(e) => e.currentTarget.parentNode.scrollLeft -= 340} className={styles.prev_btn}>
+                    <div className={styles.items_container} ref={listRef}>
+                        <Products />
+                    </div>
+                    <button onClick={() => handleScroll("right")} className={styles.next_btn}>
                         <i class="bi bi-chevron-right"></i>
                     </button>
-                    <Products />
                 </div>
             </section>
             <section className={styles.collection_container}>
@@ -46,13 +65,15 @@ const Home = () => {
             <section className={styles.section_container}>
                 <h1>Basses</h1>
                 <div className={styles.products_container} id='teste'>
-                    <button onClick={(e) => e.currentTarget.parentNode.scrollLeft += 340} className={styles.next_btn}>
+                    <button onClick={() => handleScroll("left")} className={styles.prev_btn}>
                         <i class="bi bi-chevron-right"></i>
                     </button>
-                    <button onClick={(e) => e.currentTarget.parentNode.scrollLeft -= 340} className={styles.prev_btn}>
+                    <div className={styles.items_container} ref={listRef}>
+                        <Products categoryFilter="bass" />
+                    </div>
+                    <button onClick={() => handleScroll("right")} className={styles.next_btn}>
                         <i class="bi bi-chevron-right"></i>
                     </button>
-                    <Products categoryFilter="bass" />
                 </div>
             </section>
         </>
