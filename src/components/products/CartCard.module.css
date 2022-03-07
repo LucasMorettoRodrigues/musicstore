@@ -1,17 +1,19 @@
 .card {
     background-color: white;
-    margin-bottom: -15px;
+    margin-bottom: 5px;
 }
 
 .card h1 {
     padding-left: 10px;
-    font-size: 1.2em;
+    font-size: 0.9em;
+    padding: 5px 10px;
     border-bottom: 1px solid rgb(241, 241, 241);
 }
 
 .card_info img {
     width: 80px;
     height: 80px;
+    padding: 10px;
     margin-left: 10px;
 }
 

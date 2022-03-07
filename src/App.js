@@ -9,7 +9,6 @@ import Product from './components/pages/Product'
 import ProductList from './components/pages/ProductList'
 import Login from './components/pages/Login'
 import Register from './components/pages/Register'
-import Shipping from './components/pages/Shipping'
 import Order from './components/pages/Order'
 import PurchaseCompleted from './components/pages/PurchaseCompleted'
 import Orders from './components/pages/Orders'
@@ -19,7 +18,6 @@ function App() {
 
   const [showCart, setShowCart] = useState(false)
   const [cartProducts, setCartProducts] = useState([])
-  const [shipping, setShipping] = useState({})
 
   const getCartProducts = async () => {
     const cartStr = localStorage.getItem("cart")
@@ -42,22 +40,26 @@ function App() {
 
   const handleCart = (product, action) => {
     const cartStr = localStorage.getItem("cart")
+    let newCart
 
-    if (!cartStr) return localStorage.setItem("cart", JSON.stringify([{ productId: product._id, quantity: 1 }]))
+    // Create Cart
+    if (!cartStr) {
+      newCart = [{ productId: product._id, quantity: 1 }]
+    } else {
+      // Existing Cart
+      const cart = JSON.parse(cartStr)
+      const itemIndex = cart.findIndex((item) => item.productId === product._id)
+      newCart = cart.slice()
 
-    const cart = JSON.parse(cartStr)
-    const itemIndex = cart.findIndex((item) => item.productId === product._id)
-    let newCart = cart.slice()
-
-    if (itemIndex < 0) newCart = [...cart, { productId: product._id, quantity: 1 }]
-    if (itemIndex >= 0 && action === "remove" && newCart[itemIndex].quantity > 1) newCart[itemIndex].quantity -= 1
-    if (itemIndex >= 0 && action === "add") newCart[itemIndex].quantity += 1
+      if (itemIndex < 0) newCart = [...cart, { productId: product._id, quantity: 1 }]
+      if (itemIndex >= 0 && action === "remove" && newCart[itemIndex].quantity > 1) newCart[itemIndex].quantity -= 1
+      if (itemIndex >= 0 && action === "add") newCart[itemIndex].quantity += 1
+    }
 
     localStorage.setItem("cart", JSON.stringify(newCart))
     getCartProducts()
     !showCart && setShowCart(true)
   }
-
 
   return (
     <BrowserRouter>
@@ -74,8 +76,7 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/category/:category" element={<ProductList />} />
         <Route path="/:id" element={<Product handleCart={(product, action) => handleCart(product, action)} />} />
-        <Route path="/checkout/shipping" element={<Shipping setShipping={(address) => setShipping(address)} />} />
-        <Route path="/checkout/order" element={<Order cartProducts={cartProducts} shipping={shipping} />} />
+        <Route path="/checkout/order" element={<Order cartProducts={cartProducts} />} />
         <Route path="/checkout/completed" element={<PurchaseCompleted />} />
         <Route path="/orders" element={<Orders />} />
       </Routes>

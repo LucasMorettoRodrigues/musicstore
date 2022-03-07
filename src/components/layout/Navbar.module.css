@@ -73,6 +73,7 @@ display: flex;
     display: none;
 }
 
+.icon,
 .hamburger,
 .mobile_row1_icons a,
 .nav_items a {
@@ -80,6 +81,7 @@ display: flex;
     cursor: pointer;
 }
 
+.icon,
 .hamburger i,
 .mobile_row1_icons a i,
 .nav_items a i {
@@ -88,16 +90,18 @@ display: flex;
     color: white;
 }
 
+.icon:hover,
 .hamburger i:hover,
 .mobile_row1_icons a i:hover,
 .nav_items a i:hover {
     transform: scale(1.05);
 }
 
+.icon:active,
 .hamburger i:active,
 .mobile_row1_icons a i:active,
 .nav_items a i:active {
-    transform: scale(0.9);
+    transform: scale(1);
 }
 
 .navbar ul {

@@ -1,48 +1,21 @@
 import styles from './Cart.module.css'
 import CartCard from '../products/CartCard'
-
 import { useNavigate } from 'react-router-dom'
-
-// import api from '../../services/api.service'
+import getUser from '../../services/auth.service'
 
 const Cart = ({ closeCart, isOpen, handleCart, cartProducts }) => {
 
     const navigate = useNavigate()
 
-    // const checkout = async () => {
-
-    //     let products = []
-
-    //     for (const product of cartProducts) {
-    //         const newProduct = {
-    //             productId: product._id,
-    //             quantity: product.quantity
-    //         }
-
-    //         products = [...products, newProduct]
-    //     }
-
-    //     try {
-    //         const { data } = await api.post("http://localhost:5000/api/v1/orders", {
-    //             products: products
-    //         })
-
-    //         console.log(data);
-
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
     const checkout = () => {
         closeCart()
-        navigate('/checkout/shipping')
+        getUser() ? navigate('/checkout/order') : navigate('/login')
     }
 
     return (
         <div className={`${styles.cart_back} ${isOpen ? styles.show_back : null}`}>
             <div className={`${styles.cart_window} ${isOpen ? styles.show_window : null}`}>
-                <h1>Your Shopping Cart</h1>
+                <h2>Your Shopping Cart</h2>
                 <div className={styles.products_cart}>
                     {cartProducts.map((product) => (
                         <CartCard

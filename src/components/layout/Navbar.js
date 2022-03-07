@@ -26,7 +26,7 @@ const Navbar = ({ openCart }) => {
                         <button>Search</button>
                     </div>
                     <Link to="/login"><i class="bi bi-person-circle"></i></Link>
-                    <a onClick={openCart} href='#'><i class="bi bi-cart"></i></a>
+                    <div className={styles.icon} onClick={openCart}><i class="bi bi-cart"></i></div>
                     <button onClick={() => setShowMenu(!showMenu)} className={styles.hamburger}><i class="bi bi-list"></i></button>
                 </div>
             </div>
