@@ -15,8 +15,8 @@
 }
 
 .footer_container img {
-    max-height: 100px;
-    width: auto;
+    max-width: 300px;
+    height: fit-content;
     opacity: 0.8;
 }
 

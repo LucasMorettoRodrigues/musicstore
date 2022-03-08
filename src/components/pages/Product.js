@@ -38,7 +38,7 @@ const Product = ({ handleCart }) => {
                     </ul>
                     <h2>$ {product.price.toFixed(2)}</h2>
                     <button onClick={() => handleCart(product, "add")}>
-                        Buy Now 2
+                        Buy Now
                     </button>
 
                 </div>

@@ -11,7 +11,7 @@
 
 .header img {
     max-height: 80px;
-    min-width: 50px;
+    width: 100%;
 }
 
 .mobile_row1_icons {
@@ -126,13 +126,6 @@ display: flex;
     opacity: 1;
 }
 
-@media (max-width: 952px) {
-    .header {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
-
 @media (max-width: 858px) {
 
     .hidden ul{
@@ -152,6 +145,10 @@ display: flex;
         margin-top: 5px;
         margin-bottom: 5px;
         width: 100%;
+    }
+
+    .nav_items div i {
+        display: none;
     }
 
     .nav_items a {
@@ -178,5 +175,15 @@ display: flex;
 
     .navbar ul li {
         margin: 10px 0;
+    }
+
+    .search input,
+    .search button {
+        padding: 5px;
+    }
+
+    .search button {
+        width: 60px;
+        font-size: 0.8em;
     }
 }

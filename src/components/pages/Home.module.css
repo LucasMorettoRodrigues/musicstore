@@ -39,6 +39,11 @@
     transition: all .5s ease;
 }
 
+.items_container a {
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
 .products_container button {
     position: absolute;
     padding: 2px 0;
@@ -125,4 +130,43 @@
 .row2_col2:hover h2 {
     color: rgb(233, 162, 30);
     text-shadow: 5px 5px 5px black;
+}
+
+@media (max-width: 858px) {
+    .header {
+        margin-bottom: 30px;
+    }
+
+    .section_container {
+        padding: 0;
+    }
+
+    .section_container h1 {
+        margin-left: 20px;
+    }
+
+    .products_container {
+        display: block;
+        padding-bottom: 0;
+    }
+
+    .products_container button {
+        display: none;
+    }
+
+    .items_container {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .items_container a {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .collection_container {
+        display: none;
+    }
 }

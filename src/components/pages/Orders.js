@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     max-width: 1000px;
+    min-width: 300px;
     margin: 0 auto;
     padding: 30px;
 `
@@ -22,6 +23,11 @@ const OrderHeaderContainer = styled.div`
     justify-content: space-between;
     margin-bottom: 10px;
     border: 1px solid white;
+
+    @media (max-width: 858px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 `
 const OrderId = styled.p`
     padding: 5px;

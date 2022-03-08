@@ -52,3 +52,30 @@
 .product_container div button:hover {
     background-color: #003464;
 }
+
+@media (max-width: 858px) {
+    .product_container {
+        align-items: center;
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    .product_container img {
+        width: 90vw;
+        height: fit-content;
+    }
+
+    .product_container div {
+        margin: 20px;
+    }
+
+    .product_container div h1 {
+        margin-bottom: 30px;
+        font-size: 1.5em;
+    }
+
+    .product_container div button {
+        font-size: 1em;
+    }
+}
+

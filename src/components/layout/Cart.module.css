@@ -40,6 +40,7 @@
 .products_cart {
     padding: 20px 0;
     flex: 1;
+    overflow-x: scroll;
 }
 
 .footer_cart {
@@ -72,4 +73,21 @@
 
 .footer_cart button:hover {
     background-color: #003464;
+}
+
+@media (max-width: 858px) {
+    .cart_window {
+        width: 320px;
+    }
+
+    .footer_cart span,
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .footer_cart button {
+        padding: 10px 40px;
+        font-size: 1em;
+        width: 100%;
+    }
 }

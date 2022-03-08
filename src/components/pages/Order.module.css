@@ -9,12 +9,10 @@
     padding: 10px;
     background-color: #004483;
     color: white;
-
 }
 
 .section_container h2 {
     font-size: 1em;
-
     margin-bottom: 10px;
     background-color: rgb(216, 216, 216);
     padding: 10px;
@@ -22,11 +20,12 @@
 
 .section_container h3 {
     margin-left: 10px;
-    font-size: 1em;
-    font-weight: 100;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 .section_container p {
+    text-align: center;
     font-size: 0.9em;
     margin-bottom: 10px;
     padding: 10px;
@@ -74,4 +73,27 @@
 
 .align_right {
     text-align: right;
+}
+
+@media (max-width: 858px) {
+
+    .section_container {
+        padding: 0 20px;
+        width: 100vw;
+    }
+
+    .flex {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .section_container h3 {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .section_container p {
+        padding: 0;
+        margin-right: 0;
+    }
 }
