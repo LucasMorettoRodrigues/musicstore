@@ -1,6 +1,8 @@
 import api from '../../services/api.service'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { logout } from '../../services/auth.service'
 
 const Container = styled.div`
     max-width: 1000px;
@@ -8,8 +10,18 @@ const Container = styled.div`
     margin: 0 auto;
     padding: 30px;
 `
-const Title = styled.h1`
-    margin-bottom: 20px;    
+const HeaderContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;  
+`
+const Title = styled.h1``
+
+const LogoutBtn = styled.button`
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
 `
 const OrderContainer = styled.div`
     padding: 10px;
@@ -94,6 +106,7 @@ const OrderAmount = styled.p`
 const Orders = () => {
 
     const [orders, setOrders] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         const getOrders = async () => {
@@ -107,9 +120,17 @@ const Orders = () => {
         getOrders()
     }, [])
 
+    const handleLogout = () => {
+        logout()
+        navigate('/login')
+    }
+
     return (
         <Container>
-            <Title>Your Orders:</Title>
+            <HeaderContainer>
+                <Title>Your Orders:</Title>
+                <LogoutBtn onClick={handleLogout}>Logout</LogoutBtn>
+            </HeaderContainer>
             {orders.length > 0 && orders.map((order) => (
                 <OrderContainer key={order._id}>
                     <OrderHeaderContainer>

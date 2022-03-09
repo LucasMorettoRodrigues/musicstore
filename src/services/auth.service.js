@@ -4,4 +4,11 @@ const getUser = () => {
     return null
 }
 
-export default getUser
+const logout = () => {
+    localStorage.removeItem('user')
+}
+
+module.exports = {
+    getUser,
+    logout
+}

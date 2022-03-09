@@ -1,7 +1,7 @@
 import styles from './Cart.module.css'
 import CartCard from '../products/CartCard'
 import { useNavigate } from 'react-router-dom'
-import getUser from '../../services/auth.service'
+import { getUser } from '../../services/auth.service'
 
 const Cart = ({ closeCart, isOpen, handleCart, cartProducts }) => {
 

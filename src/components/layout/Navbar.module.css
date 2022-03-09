@@ -27,6 +27,7 @@
 }
 
 .nav_items {
+    position: relative;
     flex-shrink: 1;
     display: flex;
     align-items: center;
@@ -76,7 +77,8 @@ display: flex;
 .icon,
 .hamburger,
 .mobile_row1_icons a,
-.nav_items a {
+.nav_items a,
+.user_icon i {
     margin-left: 20px;
     cursor: pointer;
 }
@@ -84,7 +86,8 @@ display: flex;
 .icon,
 .hamburger i,
 .mobile_row1_icons a i,
-.nav_items a i {
+.nav_items a i,
+.user_icon i {
     display: inline-block;
     font-size: 1.8em;
     color: white;
@@ -124,6 +127,48 @@ display: flex;
 .logo a:hover,
 .navbar ul li:hover{
     opacity: 1;
+}
+
+.user_icon {
+    position: relative;
+}
+
+.user_icon ul:hover,
+.user_icon:hover ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.user_icon ul {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin-left: -50px;
+    width: 120px;
+    padding: 0;
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.user_icon ul li {
+    color: #111;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.user_icon ul li a {
+    color: #111;
+    margin: 0;
+    padding: 0;
+}
+
+.user_icon li:hover {
+    background-color: rgb(211, 212, 255);
 }
 
 @media (max-width: 858px) {
