@@ -1,7 +1,6 @@
 import styles from './Cart.module.css'
 import CartCard from '../products/CartCard'
 import { useNavigate } from 'react-router-dom'
-import { getUser } from '../../services/auth.service'
 
 const Cart = ({ closeCart, isOpen, handleCart, cartProducts }) => {
 
@@ -9,7 +8,7 @@ const Cart = ({ closeCart, isOpen, handleCart, cartProducts }) => {
 
     const checkout = () => {
         closeCart()
-        getUser() ? navigate('/checkout/order') : navigate('/login')
+        navigate('/checkout/order')
     }
 
     return (

@@ -58,7 +58,6 @@ const Navbar = ({ openCart }) => {
                     <Link to='/category/bass'><li>Bass</li></Link>
                     <Link to='/category/keyboard'><li>Keyboard</li></Link>
                     <Link to='/category/drums'><li>Drums</li></Link>
-                    <Link to='/category/amplifier'><li>Amplifier</li></Link>
                 </ul>
             </div>
         </nav>

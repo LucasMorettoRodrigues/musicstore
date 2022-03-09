@@ -58,6 +58,10 @@
     font-size: 1em;
 }
 
+.section_container button:hover {
+    background-color: aliceblue;
+}
+
 .section_container button:active {
     transform: scale(0.99)
 }
@@ -88,6 +92,7 @@
     align-items: center;
     border-bottom: 1px solid #004483;
     padding-bottom: 10px;
+    margin-right: 10px;
     margin-bottom: 50px;
 }
 

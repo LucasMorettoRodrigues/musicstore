@@ -20,7 +20,7 @@ const Product = ({ handleCart }) => {
         getProduct()
     }, [id])
 
-    if (!product) return <p>Loading</p>
+    if (!product) return <p>Not Found</p>
 
     return (
         <section className={styles.section_container}>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import Navbar from './components/layout/Navbar'
@@ -10,15 +10,21 @@ import ProductList from './components/pages/ProductList'
 import Login from './components/pages/Login'
 import Register from './components/pages/Register'
 import Order from './components/pages/Order'
-import PurchaseCompleted from './components/pages/PurchaseCompleted'
 import Orders from './components/pages/Orders'
 import api from './services/api.service'
 import Success from './components/pages/Success'
+import NotFound from './components/pages/NotFound'
+import { getUser } from './services/auth.service'
 
 function App() {
 
   const [showCart, setShowCart] = useState(false)
   const [cartProducts, setCartProducts] = useState([])
+
+  const PrivateRoute = ({ children }) => {
+    if (!getUser()) return <Navigate to="/login" />
+    return children
+  }
 
   const getCartProducts = async () => {
     const cartStr = localStorage.getItem("cart")
@@ -77,11 +83,10 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/category/:category" element={<ProductList />} />
         <Route path="/:id" element={<Product handleCart={(product, action) => handleCart(product, action)} />} />
-        <Route path="/checkout/order" element={<Order cartProducts={cartProducts} />} />
-        <Route path="/checkout/success" element={<Success />} />
-        <Route path="/checkout/completed" element={<PurchaseCompleted />} />
-        <Route path="/orders" element={<Orders />} />
-
+        <Route path="/checkout/order" element={<PrivateRoute><Order cartProducts={cartProducts} /></PrivateRoute>} />
+        <Route path="/checkout/success" element={<PrivateRoute><Success /></PrivateRoute>} />
+        <Route path="/orders" element={<PrivateRoute><Orders /></PrivateRoute>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

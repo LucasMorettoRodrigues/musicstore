@@ -36,6 +36,11 @@
     font-size: 0.9em;
     color: rgb(216, 216, 216);
     margin-top: 0.5em;
+    cursor: pointer;
+}
+
+.footer_container li i {
+    margin-right: 10px;
 }
 
 .footer p {
