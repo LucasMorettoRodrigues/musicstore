@@ -7,6 +7,7 @@ const Product = ({ handleCart }) => {
 
     const { id } = useParams()
     const [product, setProduct] = useState()
+    const [error, setError] = useState()
 
     useEffect(() => {
         const getProduct = async () => {
@@ -14,13 +15,15 @@ const Product = ({ handleCart }) => {
                 const data = await api.get(`http://localhost:5000/api/v1/products/${id}`)
                 setProduct(data.data)
             } catch (error) {
-                console.log(error);
+                setError(error)
             }
         }
         getProduct()
     }, [id])
 
-    if (!product) return <p>Not Found</p>
+    if (!product && !error) return <p>Loading ...</p>
+
+    if (!product && error) return <p>Not Found</p>
 
     return (
         <section className={styles.section_container}>

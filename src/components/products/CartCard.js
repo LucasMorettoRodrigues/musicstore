@@ -17,7 +17,7 @@ const CartCard = ({ product, handleCart }) => {
                 </div>
                 <div className={styles.subtotal}>
                     <h5>Subtotal</h5>
-                    <h4>$ {product.price}</h4>
+                    <h4>$ {product.price * product.quantity}</h4>
                 </div>
             </div>
         </div>

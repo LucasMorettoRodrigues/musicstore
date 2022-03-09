@@ -1,6 +1,6 @@
 import styles from './Form.module.css'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -10,7 +10,8 @@ const Register = () => {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [passwordConfirmation, setPasswordConfirmation] = useState()
-    const [error, setError] = useState()
+    const [error, setError] = useState("")
+    const navigate = useNavigate()
 
     const register = async (e) => {
         e.preventDefault()
@@ -20,14 +21,14 @@ const Register = () => {
         }
 
         try {
-            const { data } = await axios.post('http://localhost:5000/api/v1/auth/register', {
+            await axios.post('http://localhost:5000/api/v1/auth/register', {
                 email: email,
                 username: username,
                 password: password
             })
-            return console.log(data)
+            navigate('/login')
         } catch (error) {
-            return console.log(error);
+            setError(error.response.data.error)
         }
     }
 
@@ -44,7 +45,7 @@ const Register = () => {
                     <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} required />
                     <label htmlFor="passwordConfirmation">Confirm Password</label>
                     <input id="passwordConfirmation" type="password" onChange={(e) => setPasswordConfirmation(e.target.value)} required />
-                    {error && <h5>{error}</h5>}
+                    {error && <span className={styles.error}>{error}</span>}
                     <input className={styles.submit_btn} type="submit" value="Sign up" />
                 </form>
                 <p>Already have an account? <Link to="/login">Log in</Link></p>

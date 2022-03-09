@@ -40,7 +40,7 @@
 .products_cart {
     padding: 20px 0;
     flex: 1;
-    overflow-x: scroll;
+    overflow-y:auto;
 }
 
 .footer_cart {

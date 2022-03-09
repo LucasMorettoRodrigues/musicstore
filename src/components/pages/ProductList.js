@@ -5,7 +5,6 @@ import Products from '../layout/Products'
 import { useParams } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 
-
 const ProductList = () => {
 
     const { category } = useParams()
@@ -18,8 +17,10 @@ const ProductList = () => {
         setChecked([false, false, false])
         setFilter([])
         setSort("")
-        defaultOption.current.selected = true
+        if (defaultOption.current) defaultOption.current.selected = true
     }, [category])
+
+    if (category !== 'guitar' && category !== 'bass' && category !== 'keyboard' && category !== 'drums') return <div>Not Found</div>
 
     return (
         <section className={styles.section_container}>

@@ -45,7 +45,7 @@ const Order = ({ cartProducts }) => {
                     <h3>{item.name}</h3>
                     <div className={styles.flex}>
                         <img src={item.img} alt={item.name}></img>
-                        <p>Price: {item.price.toFixed(2)}</p>
+                        <p>Subtotal: {(item.price * item.quantity).toFixed(2)}</p>
                         <p>Quantity: {item.quantity}</p>
                     </div>
                 </div>
