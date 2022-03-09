@@ -62,20 +62,6 @@ const Home = () => {
                     </Link>
                 </div>
             </section>
-            <section className={styles.section_container}>
-                <h1>Bass</h1>
-                <div className={styles.products_container} >
-                    <button onClick={() => handleScroll("left")} className={styles.prev_btn}>
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                    <div className={styles.items_container} ref={listRef}>
-                        <Products categoryFilter='bass' />
-                    </div>
-                    <button onClick={() => handleScroll("right")} className={styles.next_btn}>
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                </div>
-            </section>
         </>
     )
 }
