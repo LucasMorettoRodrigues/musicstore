@@ -16,6 +16,7 @@ const Home = () => {
     const [position, setPosition] = useState(0)
 
     const handleScroll = (direction) => {
+        console.log(listRef.current.getBoundingClientRect());
         if (direction === "left" && position < 0) {
             listRef.current.style.transform = `translateX(${position + 340}px)`
             setPosition(position + 340)
