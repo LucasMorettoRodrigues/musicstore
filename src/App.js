@@ -53,7 +53,7 @@ function App() {
     if (!cartStr) {
       newCart = [{ productId: product._id, quantity: 1 }]
     } else {
-      // Existing Cart
+    // Existing Cart
       const cart = JSON.parse(cartStr)
       const itemIndex = cart.findIndex((item) => item.productId === product._id)
       newCart = cart.slice()
@@ -61,6 +61,7 @@ function App() {
       if (itemIndex < 0) newCart = [...cart, { productId: product._id, quantity: 1 }]
       if (itemIndex >= 0 && action === "remove" && newCart[itemIndex].quantity > 1) newCart[itemIndex].quantity -= 1
       if (itemIndex >= 0 && action === "add") newCart[itemIndex].quantity += 1
+      if (action === "delete") newCart.splice(itemIndex, 1)
     }
 
     localStorage.setItem("cart", JSON.stringify(newCart))
