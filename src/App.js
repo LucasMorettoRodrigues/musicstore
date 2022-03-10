@@ -83,6 +83,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/category/:category" element={<ProductList />} />
+        <Route path="/products" element={<ProductList />} />
         <Route path="/:id" element={<Product handleCart={(product, action) => handleCart(product, action)} />} />
         <Route path="/checkout/order" element={<PrivateRoute><Order cartProducts={cartProducts} /></PrivateRoute>} />
         <Route path="/checkout/success" element={<PrivateRoute><Success /></PrivateRoute>} />

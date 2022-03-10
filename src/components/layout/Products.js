@@ -3,7 +3,7 @@ import api from '../../services/api.service'
 import { useParams } from 'react-router-dom'
 import ProductCard from '../products/ProductCard'
 
-const Products = ({ sort, filter }) => {
+const Products = ({ sort, filter, search }) => {
 
     let { category } = useParams()
 
@@ -14,9 +14,10 @@ const Products = ({ sort, filter }) => {
     useEffect(() => {
         async function getProducts() {
             try {
-                const data = category
-                    ? await api.get(`http://localhost:5000/api/v1/products?category=${category}`)
-                    : await api.get(`http://localhost:5000/api/v1/products`)
+                let data 
+                if(!category && !search) data = await api.get(`http://localhost:5000/api/v1/products`)
+                if(category) data = await api.get(`http://localhost:5000/api/v1/products?category=${category}`)
+                if(search) data = await api.get(`http://localhost:5000/api/v1/products?name=${search}`)
                 setProducts(data.data)
                 setLoading(false)
             } catch (error) {
@@ -24,11 +25,10 @@ const Products = ({ sort, filter }) => {
             }
         }
         getProducts()
-    }, [category])
+    }, [category, search])
 
     useEffect(() => {
-
-        if (!category) return
+        if (!category && !search) return
         if (filter.includes(true)) {
             const filters = { filterA: [], filterB: [], filterC: [] }
 
@@ -48,7 +48,7 @@ const Products = ({ sort, filter }) => {
         } else {
             setFilteredProducts([...products])
         }
-    }, [filter, products, category])
+    }, [filter, products, category, search])
 
     useEffect(() => {
         if (sort === 'priceAsc') {
@@ -66,7 +66,7 @@ const Products = ({ sort, filter }) => {
     return (
         <>
             {
-                category
+                category || search
                     ? filteredProducts.map((item) => <ProductCard key={item._id} product={item} />)
                     : products.map((item) => <ProductCard key={item._id} product={item} />)
             }

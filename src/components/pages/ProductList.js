@@ -2,11 +2,14 @@ import styles from './ProductList.module.css'
 
 import Products from '../layout/Products'
 
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 
 const ProductList = () => {
 
+    const location = useLocation()
+
+    const search = location.state ? location.state.search : null
     const { category } = useParams()
     const [sort, setSort] = useState(null)
     const [filter, setFilter] = useState([])
@@ -20,7 +23,7 @@ const ProductList = () => {
         if (defaultOption.current) defaultOption.current.selected = true
     }, [category])
 
-    if (category !== 'guitar' && category !== 'bass' && category !== 'keyboard' && category !== 'drums') return <div>Not Found</div>
+    if (category !== 'guitar' && category !== 'bass' && category !== 'keyboard' && category !== 'drums' && !search) return <div>Not Found</div>
 
     return (
         <section className={styles.section_container}>
@@ -61,7 +64,7 @@ const ProductList = () => {
                 </aside>
                 <div className={styles.products_container}>
                     <div className={styles.products_container_header}>
-                        <h1>{category}</h1>
+                        <h1>{category ? category : `Search: ${search}`}</h1>
                         <div>
                             <label htmlFor="sort">Sort:</label>
                             <select onChange={(e) => setSort(e.target.value)} name="sort" id="sort">
@@ -72,10 +75,9 @@ const ProductList = () => {
                         </div>
                     </div>
                     <div className={styles.products}>
-                        <Products sort={sort} filter={filter} />
+                        <Products sort={sort} filter={filter} search={search}/>
                     </div>
                 </div>
-
             </div>
         </section >
     )

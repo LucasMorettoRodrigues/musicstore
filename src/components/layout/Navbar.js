@@ -10,6 +10,7 @@ const Navbar = ({ openCart }) => {
 
     const navigate = useNavigate()
     const [showMenu, setShowMenu] = useState(false)
+    const [search, setSearch] = useState(null)
 
     const handleLogout = () => {
         logout()
@@ -29,8 +30,12 @@ const Navbar = ({ openCart }) => {
                 </div>
                 <div className={styles.nav_items}>
                     <div className={styles.search}>
-                        <input type="text" placeholder="Search Products..."></input>
-                        <button>Search</button>
+                        <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search..."></input>
+                        <button 
+                            onClick={() => search && navigate("/products", { state: {search: search} })}
+                        >
+                            Search
+                        </button>
                     </div>
                     <div className={styles.user_icon}>
                         <i class="bi bi-person-circle"></i>
