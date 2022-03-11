@@ -23,7 +23,7 @@
     max-width: 1520px;
     margin: 0 auto;
     position: relative;
-    padding-top: 50px;
+    padding: 50px 20px;
     overflow-x: hidden;
 }
 
@@ -34,14 +34,13 @@
 
 .items_container {
     display: flex;
-    margin-left: 100px;
+    margin-left: 80px;
     transform: translateX(0);
     transition: all .5s ease;
 }
 
 .items_container a {
-    margin-right: 40px;
-    margin-bottom: 40px;
+    margin-right: 20px;
 }
 
 .products_container button {
@@ -132,7 +131,7 @@
     text-shadow: 5px 5px 5px black;
 }
 
-@media (max-width: 1520px) {
+@media (max-width: 1460px) {
     .header {
         margin-bottom: 30px;
     }
@@ -162,7 +161,8 @@
     }
 
     .items_container a {
-        margin-right: 20px;
+        margin-right: 10px;
+        margin-left: 20px;
         margin-bottom: 30px;
     }
 }

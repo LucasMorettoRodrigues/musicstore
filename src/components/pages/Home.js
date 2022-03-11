@@ -18,12 +18,12 @@ const Home = () => {
     const handleScroll = (direction) => {
         console.log(listRef.current.getBoundingClientRect());
         if (direction === "left" && position < 0) {
-            listRef.current.style.transform = `translateX(${position + 340}px)`
-            setPosition(position + 340)
+            listRef.current.style.transform = `translateX(${position + 320}px)`
+            setPosition(position + 320)
         }
-        if (direction === "right" && position > -340) {
-            listRef.current.style.transform = `translateX(${position - 340}px)`
-            setPosition(position - 340)
+        if (direction === "right" && position > -320) {
+            listRef.current.style.transform = `translateX(${position - 320}px)`
+            setPosition(position - 320)
         }
         console.log(position);
     }
