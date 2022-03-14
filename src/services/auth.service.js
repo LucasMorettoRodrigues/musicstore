@@ -6,8 +6,6 @@ const getUser = () => {
 
 const logout = () => {
     localStorage.removeItem('user')
-    localStorage.removeItem('cart')
-    window.location.reload()
 }
 
 module.exports = {

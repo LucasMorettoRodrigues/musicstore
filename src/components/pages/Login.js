@@ -1,32 +1,27 @@
 import styles from './Form.module.css'
 
-import axios
-    from 'axios'
+import api from '../../services/api.service'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
     const navigate = useNavigate()
-
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [error, setError] = useState("")
 
     const login = async (e) => {
         e.preventDefault()
-
         try {
-            const data = await axios.post('http://localhost:5000/api/v1/auth/login', {
+            const data = await api.post('http://localhost:5000/api/v1/auth/login', {
                 email: email,
                 password: password
             })
-
             if (data.data.token) {
                 localStorage.setItem("user", JSON.stringify(data.data))
                 navigate('/')
             }
-
         } catch (error) {
             setError(error.response.data.error)
         }

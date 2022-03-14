@@ -31,8 +31,8 @@ const Navbar = ({ openCart }) => {
                 <div className={styles.nav_items}>
                     <div className={styles.search}>
                         <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search..."></input>
-                        <button 
-                            onClick={() => search && navigate("/products", { state: {search: search} })}
+                        <button
+                            onClick={() => search && navigate("/products", { state: { search: search } })}
                         >
                             Search
                         </button>

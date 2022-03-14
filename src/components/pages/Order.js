@@ -3,11 +3,31 @@ import StripeCheckout from "react-stripe-checkout"
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import api from '../../services/api.service'
+import { useSelector } from 'react-redux'
 
-const Order = ({ cartProducts }) => {
+const Order = () => {
 
     const [stripeToken, setStripeToken] = useState(null)
     const navigate = useNavigate()
+    const cart = useSelector((state) => state.cart);
+    const [cartProducts, setCartProducts] = useState([])
+
+    useEffect(() => {
+        const getCartProducts = async () => {
+            let productsArray = []
+            for (const item of cart.products) {
+                try {
+                    const res = await api.get(`http://localhost:5000/api/v1/products/${item._id}`)
+                    res.data.quantity = item.quantity
+                    productsArray = [...productsArray, res.data]
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+            setCartProducts(productsArray)
+        }
+        getCartProducts()
+    }, [cart])
 
     const KEY = process.env.REACT_APP_STRIPE
 
@@ -53,7 +73,7 @@ const Order = ({ cartProducts }) => {
             <h4>Total: $ {cartProducts.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</h4>
             <div className={styles.align_right}>
                 <StripeCheckout className={styles.btn}
-                    name="Lama Shop"
+                    name="Music Store"
                     image="https://avatars.githubusercontent.com/u/1486366?v=4"
                     billingAddress
                     shippingAddress

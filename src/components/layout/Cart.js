@@ -1,10 +1,32 @@
 import styles from './Cart.module.css'
 import CartCard from '../products/CartCard'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import api from '../../services/api.service'
+import { useEffect, useState } from 'react'
 
-const Cart = ({ closeCart, isOpen, handleCart, cartProducts }) => {
+const Cart = ({ closeCart, isOpen }) => {
 
     const navigate = useNavigate()
+    const cart = useSelector((state) => state.cart);
+    const [cartProducts, setCartProducts] = useState([])
+
+    useEffect(() => {
+        const getCartProducts = async () => {
+            let productsArray = []
+            for (const item of cart.products) {
+                try {
+                    const res = await api.get(`http://localhost:5000/api/v1/products/${item._id}`)
+                    res.data.quantity = item.quantity
+                    productsArray = [...productsArray, res.data]
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+            setCartProducts(productsArray)
+        }
+        getCartProducts()
+    }, [cart])
 
     const checkout = () => {
         closeCart()
@@ -20,7 +42,6 @@ const Cart = ({ closeCart, isOpen, handleCart, cartProducts }) => {
                         <CartCard
                             product={product}
                             key={product._id}
-                            handleCart={(product, action) => handleCart(product, action)}
                         />
                     ))}
                 </div>
@@ -36,7 +57,6 @@ const Cart = ({ closeCart, isOpen, handleCart, cartProducts }) => {
                 </div>
             </div>
         </div>
-
     )
 }
 

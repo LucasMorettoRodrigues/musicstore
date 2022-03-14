@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from '../../services/api.service'
 import styles from './Product.module.css'
+import { addProduct } from "../../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
-const Product = ({ handleCart }) => {
+
+const Product = ({ openCart }) => {
 
     const { id } = useParams()
     const [product, setProduct] = useState()
     const [error, setError] = useState()
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getProduct = async () => {
@@ -20,6 +24,13 @@ const Product = ({ handleCart }) => {
         }
         getProduct()
     }, [id])
+
+    const handleClick = () => {
+        dispatch(
+            addProduct(product)
+        )
+        openCart()
+    }
 
     if (!product && !error) return <p>Loading ...</p>
 
@@ -40,7 +51,7 @@ const Product = ({ handleCart }) => {
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
                     </ul>
                     <h2>$ {product.price.toFixed(2)}</h2>
-                    <button onClick={() => handleCart(product, "add")}>
+                    <button onClick={handleClick}>
                         Buy Now
                     </button>
 
