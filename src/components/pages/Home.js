@@ -21,7 +21,7 @@ const Home = () => {
                     <img src={keyboardCollection} alt="keyboard"></img>
                 </Link>
                 <div className={styles.row2}>
-                    <Link to="/category/drum" className={styles.row2_col1}>
+                    <Link to="/category/drums" className={styles.row2_col1}>
                         <h2>Drums</h2>
                         <img src={drumCollection} alt="Drums"></img>
                     </Link>
