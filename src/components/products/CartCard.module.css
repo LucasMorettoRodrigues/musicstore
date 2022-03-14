@@ -1,6 +1,6 @@
 .card {
     background-color: white;
-    margin-bottom: 5px;
+    margin: 3px 20px;
 }
 
 .card_header {
@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgb(241, 241, 241);
-    padding: 5px;
+    padding: 5px 5px;
     background-color: rgb(218, 218, 255);
 }
 
@@ -18,10 +18,14 @@
     justify-content: center;
     background-color: white;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     border: none;
     cursor: pointer;
+}
+
+.card_header button:hover {
+    background-color: rgb(255, 116, 116);
 }
 
 .card_header button i {
@@ -86,8 +90,5 @@ h5 {
 .subtotal {
     margin-right: 10px;
     text-align: right;
-}
-
-.subtotal h4 {
 }
 
