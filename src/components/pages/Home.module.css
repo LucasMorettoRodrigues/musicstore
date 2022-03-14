@@ -23,13 +23,12 @@
     max-width: 1520px;
     margin: 0 auto;
     position: relative;
-    padding: 50px 20px;
+    padding: 40px 20px;
     overflow-x: hidden;
 }
 
-.products_container {
-    display: flex;
-    padding: 30px 0;
+.section_container h1 {
+    margin-left: 80px;
 }
 
 .items_container {
@@ -43,11 +42,16 @@
     margin-right: 20px;
 }
 
+.products_container {
+    display: flex;
+    padding: 30px 0;
+}
+
 .products_container button {
     position: absolute;
-    padding: 2px 0;
+    top: 88px;
     z-index: 10;
-    width: 94px;
+    width: 90px;
     height: 400px;
     border: none;
     background: rgba(255, 255, 255);
@@ -131,17 +135,13 @@
     text-shadow: 5px 5px 5px black;
 }
 
-@media (max-width: 1460px) {
-    .header {
-        margin-bottom: 30px;
-    }
-
+@media (max-width: 816px) {
     .section_container {
-        padding: 0;
+        padding: 40px 0;
     }
 
     .section_container h1 {
-        margin-left: 20px;
+        margin-left: 100px;
     }
 
     .products_container {
