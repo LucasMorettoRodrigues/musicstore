@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getUser } from './auth.service'
 
-axios.defaults.baseURL = 'http://localhost:5000/api/v1';
+axios.defaults.baseURL = 'https://ts-music-store-api.herokuapp.com/api/v1';
 
 const api = axios.create()
 
