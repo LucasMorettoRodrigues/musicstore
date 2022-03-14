@@ -162,17 +162,24 @@
 
     .items_container a {
         margin-right: 10px;
-        margin-left: 20px;
-        margin-bottom: 30px;
+        margin-left: 10px;
+        margin-bottom: 20px;
     }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 635px) {
+    .section_container h1 {
+       text-align: center;
+       margin: 0;
+    }
     .collection_container {
         display: none;
     }
+}
 
+@media (max-width: 500px) {
     .items_container a {
+        margin-left: 0;
         margin-right: 0;
     }
 }
