@@ -29,7 +29,12 @@ const Navbar = ({ openCart }) => {
                     <Link to="/"><img src={logo} alt="logo"></img></Link>
                     <div className={styles.mobile_row1_icons}>
                         <Link to={getUser() ? "/orders" : "/login"}><i class="bi bi-person-circle"></i></Link>
-                        <div className={styles.icon} onClick={openCart}><i class="bi bi-cart"></i><span>{cart.products.length}</span></div>
+                        <div className={styles.icon} onClick={openCart}>
+                            <i class="bi bi-cart"></i>
+                            {cart.products.length > 0 &&
+                                <span>{cart.products.length}</span>
+                            }
+                        </div>
                     </div>
                 </div>
                 <div className={styles.nav_items}>
@@ -55,7 +60,12 @@ const Navbar = ({ openCart }) => {
                             }
                         </ul>
                     </div>
-                    <div className={styles.icon} onClick={openCart}><i class="bi bi-cart"></i><span>{cart.products.length}</span></div>
+                    <div className={styles.icon} onClick={openCart}>
+                        <i class="bi bi-cart"></i>
+                        {cart.products.length > 0 &&
+                            <span>{cart.products.length}</span>
+                        }
+                    </div>
                     <button onClick={() => setShowMenu(!showMenu)} className={styles.hamburger}><i class="bi bi-list"></i></button>
                 </div>
             </div>
