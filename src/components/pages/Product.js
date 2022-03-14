@@ -16,7 +16,7 @@ const Product = ({ openCart }) => {
     useEffect(() => {
         const getProduct = async () => {
             try {
-                const data = await api.get(`http://localhost:5000/api/v1/products/${id}`)
+                const data = await api.get(`/products/${id}`)
                 setProduct(data.data)
             } catch (error) {
                 setError(error)

@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { logout } from '../../services/auth.service'
+import { reset } from '../../redux/cartRedux'
+import { useDispatch } from 'react-redux'
 
 const Container = styled.div`
     max-width: 1000px;
@@ -107,11 +109,12 @@ const Orders = () => {
 
     const [orders, setOrders] = useState([])
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const getOrders = async () => {
             try {
-                const data = await api.get(`http://localhost:5000/api/v1/orders`)
+                const data = await api.get(`/orders`)
                 setOrders(data.data)
             } catch (error) {
                 console.log(error);
@@ -122,6 +125,7 @@ const Orders = () => {
 
     const handleLogout = () => {
         logout()
+        dispatch(reset())
         navigate('/login')
     }
 

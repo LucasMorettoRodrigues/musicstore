@@ -2,7 +2,7 @@ import styles from './Form.module.css'
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import axios from 'axios'
+import api from '../../services/api.service'
 
 const Register = () => {
 
@@ -21,7 +21,7 @@ const Register = () => {
         }
 
         try {
-            await axios.post('http://localhost:5000/api/v1/auth/register', {
+            await api.post('/auth/register', {
                 email: email,
                 username: username,
                 password: password

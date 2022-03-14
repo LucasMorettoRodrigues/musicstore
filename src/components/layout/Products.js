@@ -14,10 +14,10 @@ const Products = ({ sort, filter, search }) => {
     useEffect(() => {
         async function getProducts() {
             try {
-                let data 
-                if(!category && !search) data = await api.get(`http://localhost:5000/api/v1/products`)
-                if(category) data = await api.get(`http://localhost:5000/api/v1/products?category=${category}`)
-                if(search) data = await api.get(`http://localhost:5000/api/v1/products?name=${search}`)
+                let data
+                if (!category && !search) data = await api.get("/products")
+                if (category) data = await api.get(`/products?category=${category}`)
+                if (search) data = await api.get(`/products?name=${search}`)
                 setProducts(data.data)
                 setLoading(false)
             } catch (error) {

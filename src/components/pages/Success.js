@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import api from "../../services/api.service";
 import { useNavigate } from "react-router-dom";
+import { reset } from "../../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 const Success = () => {
+    const dispatch = useDispatch()
     const location = useLocation();
     const navigate = useNavigate()
     const stripeData = location.state.stripeData;
@@ -14,7 +17,7 @@ const Success = () => {
     useEffect(() => {
         const createOrder = async () => {
             try {
-                const data = await api.post(`http://localhost:5000/api/v1/orders`, {
+                const data = await api.post(`/orders`, {
                     cart: cart.map((item) => ({
                         productId: item._id,
                         quantity: item.quantity,
@@ -22,13 +25,14 @@ const Success = () => {
                     address: stripeData.billing_details.address,
                 });
                 setOrderId(data.data._id);
+                dispatch(reset())
                 setLoading(false)
             } catch (err) {
                 console.log(err);
             }
         };
         createOrder();
-    }, [cart, stripeData]);
+    }, [cart, stripeData, dispatch]);
 
     if (loading) return <p>Loading...</p>
 

@@ -5,15 +5,20 @@ import logo from '../../assets/logo.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { getUser, logout } from '../../services/auth.service'
+import { reset } from '../../redux/cartRedux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Navbar = ({ openCart }) => {
 
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [showMenu, setShowMenu] = useState(false)
     const [search, setSearch] = useState(null)
+    const cart = useSelector((state) => state.cart)
 
     const handleLogout = () => {
         logout()
+        dispatch(reset())
         navigate('/login')
     }
 
@@ -24,16 +29,14 @@ const Navbar = ({ openCart }) => {
                     <Link to="/"><img src={logo} alt="logo"></img></Link>
                     <div className={styles.mobile_row1_icons}>
                         <Link to={getUser() ? "/orders" : "/login"}><i class="bi bi-person-circle"></i></Link>
-
-                        <div className={styles.icon} onClick={openCart}><i class="bi bi-cart"></i></div>
+                        <div className={styles.icon} onClick={openCart}><i class="bi bi-cart"></i><span>{cart.products.length}</span></div>
                     </div>
                 </div>
                 <div className={styles.nav_items}>
                     <div className={styles.search}>
                         <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search..."></input>
                         <button
-                            onClick={() => search && navigate("/products", { state: { search: search } })}
-                        >
+                            onClick={() => search && navigate("/products", { state: { search: search } })}>
                             Search
                         </button>
                     </div>
@@ -50,10 +53,9 @@ const Navbar = ({ openCart }) => {
                                     <li><Link to="/signup">Sign up</Link></li>
                                 </>
                             }
-
                         </ul>
                     </div>
-                    <div className={styles.icon} onClick={openCart}><i class="bi bi-cart"></i></div>
+                    <div className={styles.icon} onClick={openCart}><i class="bi bi-cart"></i><span>{cart.products.length}</span></div>
                     <button onClick={() => setShowMenu(!showMenu)} className={styles.hamburger}><i class="bi bi-list"></i></button>
                 </div>
             </div>

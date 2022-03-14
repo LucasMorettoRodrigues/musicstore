@@ -14,7 +14,7 @@ const Login = () => {
     const login = async (e) => {
         e.preventDefault()
         try {
-            const data = await api.post('http://localhost:5000/api/v1/auth/login', {
+            const data = await api.post('/auth/login', {
                 email: email,
                 password: password
             })

@@ -74,6 +74,10 @@ display: flex;
     display: none;
 }
 
+.icon {
+    position: relative;
+}
+
 .icon,
 .hamburger,
 .mobile_row1_icons a,
@@ -171,6 +175,22 @@ display: flex;
     background-color: rgb(211, 212, 255);
 }
 
+.icon span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -12px;
+    right: -14px;
+    width: 23px;
+    height: 23px;
+    background-color: chocolate;
+    color: white;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 @media (max-width: 858px) {
 
     .hidden ul{
@@ -197,6 +217,10 @@ display: flex;
     }
 
     .nav_items a {
+        display: none;
+    }
+
+    .nav_items div span {
         display: none;
     }
 

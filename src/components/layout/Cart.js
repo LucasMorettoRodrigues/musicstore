@@ -16,7 +16,7 @@ const Cart = ({ closeCart, isOpen }) => {
             let productsArray = []
             for (const item of cart.products) {
                 try {
-                    const res = await api.get(`http://localhost:5000/api/v1/products/${item._id}`)
+                    const res = await api.get(`/products/${item._id}`)
                     res.data.quantity = item.quantity
                     productsArray = [...productsArray, res.data]
                 } catch (error) {
