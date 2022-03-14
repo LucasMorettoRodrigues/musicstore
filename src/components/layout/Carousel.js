@@ -37,13 +37,12 @@ const ProductsContainer = styled.div`
 `
 const ArrowButton = styled.button`
     position: absolute;
-    top: 88px;
     z-index: 1;
     width: 90px;
     height: 400px;
     border: none;
     background: white;
-    top: 100px;
+    top: 88px;
     right: ${props => props.direction === "right" ? 0 : null};
     left: ${props => props.direction === "left" ? 0 : null};
     transform: ${props => props.direction === "left" ? "rotate(180deg)" : null};

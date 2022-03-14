@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import api from "../../services/api.service";
+import { useNavigate } from "react-router-dom";
 
 const Success = () => {
     const location = useLocation();
+    const navigate = useNavigate()
     const stripeData = location.state.stripeData;
     const cart = location.state.cart;
     const [orderId, setOrderId] = useState(null);
@@ -41,9 +43,9 @@ const Success = () => {
             }}
         >
             {orderId
-                ? `Order has been created successfully. Your order number is ${orderId}`
-                : `Successfull. Your order is being prepared...`}
-            <button style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button>
+                ? <p style={{ padding: 10, textAlign: "center" }}>Order has been created successfully. Your order number is ${orderId} </p>
+                : <p style={{ padding: 10, textAlign: "center" }} >Successfull. Your order is being prepared...</p>}
+            <button onClick={() => navigate("/")} style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button>
         </div>
     );
 };
