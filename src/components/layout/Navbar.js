@@ -71,10 +71,10 @@ const Navbar = ({ openCart }) => {
             </div>
             <div className={showMenu ? null : styles.hidden}>
                 <ul>
-                    <Link to='/category/guitar'><li>Guitar</li></Link>
-                    <Link to='/category/bass'><li>Bass</li></Link>
-                    <Link to='/category/keyboard'><li>Keyboard</li></Link>
-                    <Link to='/category/drums'><li>Drums</li></Link>
+                    <Link onClick={() => setShowMenu(false)} to='/category/guitar'><li>Guitar</li></Link>
+                    <Link onClick={() => setShowMenu(false)} to='/category/bass'><li>Bass</li></Link>
+                    <Link onClick={() => setShowMenu(false)} to='/category/keyboard'><li>Keyboard</li></Link>
+                    <Link onClick={() => setShowMenu(false)} to='/category/drums'><li>Drums</li></Link>
                 </ul>
             </div>
         </nav>

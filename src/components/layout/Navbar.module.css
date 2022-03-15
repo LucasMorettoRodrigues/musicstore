@@ -240,15 +240,22 @@ display: flex;
     .navbar ul {
         flex-direction: column;
         justify-content: flex-start;
+        padding: 0;
+        position: absolute;
+        background-color: #003669;
+        z-index: 1;
     }
 
     .navbar ul li {
-        margin: 10px 0;
+        padding: 25px 0;
+        border-bottom: 1px solid #00386d;
+        width: 100vw;
+        text-align: center;
     }
 
     .search input,
     .search button {
-        padding: 5px;
+        padding: 10px;
     }
 
     .search button {
