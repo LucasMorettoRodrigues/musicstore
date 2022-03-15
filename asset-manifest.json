@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/musicstore/static/css/main.2b510809.css",
+    "main.css": "/musicstore/static/css/main.4168ff0a.css",
     "main.js": "/musicstore/static/js/main.ce4c5377.js",
     "static/media/home-image.jpg": "/musicstore/static/media/home-image.b3b705532473a055126a.jpg",
     "static/media/drums-collection.jpg": "/musicstore/static/media/drums-collection.99c3c3e10d0348d4a8bd.jpg",
@@ -9,11 +9,11 @@
     "static/media/logo_blue_3.png": "/musicstore/static/media/logo_blue_3.ebae0ca3c675203d44cf.png",
     "static/media/logo.png": "/musicstore/static/media/logo.80a48f1f1fb89211c0de.png",
     "index.html": "/musicstore/index.html",
-    "main.2b510809.css.map": "/musicstore/static/css/main.2b510809.css.map",
+    "main.4168ff0a.css.map": "/musicstore/static/css/main.4168ff0a.css.map",
     "main.ce4c5377.js.map": "/musicstore/static/js/main.ce4c5377.js.map"
   },
   "entrypoints": [
-    "static/css/main.2b510809.css",
+    "static/css/main.4168ff0a.css",
     "static/js/main.ce4c5377.js"
   ]
 }
