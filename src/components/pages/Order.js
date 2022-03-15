@@ -38,7 +38,7 @@ const Order = () => {
     useEffect(() => {
         const makeRequest = async () => {
             try {
-                const res = await api.post(`http://localhost:5000/api/v1/checkout/payment`, {
+                const res = await api.post(`/checkout/payment`, {
                     tokenId: stripeToken.id,
                     amount: 500,
                 });
