@@ -29,7 +29,7 @@ function App() {
       <Cart closeCart={() => setShowCart(false)} isOpen={showCart} />
       <Navbar openCart={() => setShowCart(true)} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route path="/musicstore" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/category/:category" element={<ProductList />} />

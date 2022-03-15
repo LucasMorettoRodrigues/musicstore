@@ -20,7 +20,7 @@ const Login = () => {
             })
             if (data.data.token) {
                 localStorage.setItem("user", JSON.stringify(data.data))
-                navigate('/')
+                navigate('/musicstore')
             }
         } catch (error) {
             setError(error.response.data.error)

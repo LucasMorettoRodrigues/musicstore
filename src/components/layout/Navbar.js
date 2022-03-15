@@ -26,7 +26,7 @@ const Navbar = ({ openCart }) => {
         <nav className={styles.navbar}>
             <div className={styles.header}>
                 <div className={styles.logo}>
-                    <Link to="/"><img src={logo} alt="logo"></img></Link>
+                    <Link to="/musicstore"><img src={logo} alt="logo"></img></Link>
                     <div className={styles.mobile_row1_icons}>
                         <Link to={getUser() ? "/orders" : "/login"}><i class="bi bi-person-circle"></i></Link>
                         <div className={styles.icon} onClick={openCart}>
