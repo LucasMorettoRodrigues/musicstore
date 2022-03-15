@@ -84,7 +84,7 @@
 @media (max-width: 425px) {
     .cart_window {
         width: 100vw;
-        height: 90vh;
+        height: 95vh;
     }
 
     .footer_cart span,
@@ -93,8 +93,8 @@
     }
 
     .footer_cart button {
-        padding: 10px 40px;
+        padding: 15px 0;
         font-size: 1em;
-        width: 90%;
+        width: 80%;
     }
 }

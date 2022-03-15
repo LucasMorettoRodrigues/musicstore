@@ -1,5 +1,6 @@
 .navbar {
     background-color: #004483;
+
 }
 
 .logo {
@@ -192,11 +193,6 @@ display: flex;
 }
 
 @media (max-width: 858px) {
-
-    .hidden ul{
-        display: none;
-    }
-
     .header {
         flex-direction: column;
         align-items: flex-start;
@@ -237,18 +233,24 @@ display: flex;
         display: inline-block;
     }
 
-    .navbar ul {
+    .navbar div .hidden {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .navbar div ul {
         flex-direction: column;
         justify-content: flex-start;
         padding: 0;
         position: absolute;
         background-color: #003669;
         z-index: 1;
+        transition: all .5s ease;
     }
 
-    .navbar ul li {
+    .navbar div ul li {
         padding: 25px 0;
-        border-bottom: 1px solid #00386d;
+        border-bottom: 1px solid #002f5c;
         width: 100vw;
         text-align: center;
     }

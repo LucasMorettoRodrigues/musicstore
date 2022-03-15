@@ -69,8 +69,8 @@ const Navbar = ({ openCart }) => {
                     <button onClick={() => setShowMenu(!showMenu)} className={styles.hamburger}><i class="bi bi-list"></i></button>
                 </div>
             </div>
-            <div className={showMenu ? null : styles.hidden}>
-                <ul>
+            <div >
+                <ul className={showMenu ? null : styles.hidden}>
                     <Link onClick={() => setShowMenu(false)} to='/category/guitar'><li>Guitar</li></Link>
                     <Link onClick={() => setShowMenu(false)} to='/category/bass'><li>Bass</li></Link>
                     <Link onClick={() => setShowMenu(false)} to='/category/keyboard'><li>Keyboard</li></Link>
