@@ -29,7 +29,7 @@ const Order = () => {
         getCartProducts()
     }, [cart])
 
-    const KEY = process.env.REACT_APP_STRIPE
+    const KEY = "pk_test_51KZaedJdfkwx2Cg3Fb3gT0oxAG163bcZfOMwss843v3c4cPT6lSyHviMLRgbUzkKUpsmQXKy5IaROJmjiXujCOmK00OIyNOo6H"
 
     const onToken = (token) => {
         setStripeToken(token)
