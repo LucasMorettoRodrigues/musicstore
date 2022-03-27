@@ -5,7 +5,7 @@ E-commerce front-end created as part of a MERN stack application.
 [Click here](https://lucasmorettorodrigues.github.io/musicstore/) to access a live demo.
 
 ## Back-end Repo
-[Click here](https://github.com/LucasMorettoRodrigues/musicstore-api) to access the back end repository.
+[Click here](https://github.com/LucasMorettoRodrigues/musicstore-api) to access the back-end repository.
 
 ## Features
 - Sign In
